@@ -18,7 +18,6 @@ function setUp() {
     setupWorld();
     animate(); 
     //loadCubeMap ('js/3dcubemap/eight/dark-s_' , '.png');
-    cameraChanges();
     lights();
 }
 
@@ -28,7 +27,7 @@ function setupWorld() {
     scene = new THREE.Scene();
     scene.background = new THREE.Color('#000000');
 
-    camera = new THREE.PerspectiveCamera(80, 1, 0.001, 10000);
+    camera = new THREE.PerspectiveCamera(110, 1, 0.001, 10000);
     //camera.target = new THREE.Vector3(0, 500, 200);
     camera.position.set(0, 0, 300);
     //camera.position.set(0,0,0);
@@ -148,6 +147,9 @@ function setupWorld() {
         var audio = document.getElementById("myAudio");
         audio.loop=true;
         audio.play();
+
+        cameraChanges();
+        
         console.log( 'Loading complete!');
     };
 
