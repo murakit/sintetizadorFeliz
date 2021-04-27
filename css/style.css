@@ -1,0 +1,374 @@
+body {
+    background-color: black;
+    background-image: url('bk.jpg');
+   /*background-size: cover;
+    background-color: black;
+    background-repeat:no-repeat;*/
+}
+
+
+#interface {
+    width: 282px;
+    height: 380px;
+    /*border: 5.5px solid;
+    border-style: outset;*/
+    margin-top: 28px;
+    margin-left:34px;
+    z-index: 99;
+    position: fixed;
+}
+
+#secondinterface {
+    margin-top: 385px;
+    margin-left: 10px;
+    position:fixed;
+    font-size: 10px;
+    z-index: 99;
+}
+
+#Scndframe {
+    width: 55px;
+    height: 100px;
+    margin-top: 40px;
+    margin-left: -12px;
+    position: fixed;
+    z-index: 99;
+
+    
+}
+
+#ScndframeTwo {
+    width: 352px;
+    height: 20px;
+    margin-top: 120px;
+    margin-left: 5px;
+    position: fixed;
+    
+}
+
+#ScndframeThree {
+    z-index: 99;
+    width: 55px;
+    height: 100px;
+    margin-top: 40px;
+    margin-left: 290px;
+    position: fixed;
+    
+}
+
+#introduction {
+    position: fixed;
+    z-index: 99;
+    color: black;
+    margin-top: 360px;
+    margin-left: 50px;
+    font-size: 30px;
+    font-family: 'Almendra Display', cursive;
+    text-shadow: 2px 2px 5px purple;
+}
+
+
+#buttons {
+    width: 352px;
+    height: 80px;
+   /* border: 5.5px solid;
+    border-style: outset;*/
+    margin-top: 435px;
+    margin-left: 10px;
+    position: fixed;
+
+}
+
+#first {
+    margin-left: 40px;
+    margin-top: 0px;
+    position: fixed;
+}
+
+#firstBtn {
+    width: 30px;
+    color:white;
+   
+}
+
+#second {
+    margin-left: 150px;
+    margin-top: 2px;
+    position: fixed;
+}
+
+#sBtn {
+    width: 30px;
+    color:white;
+    
+}
+
+#third {
+    margin-left: 40px;
+    margin-top: 36px;
+    position: fixed;
+}
+
+#tBtn {
+    width: 30px;
+    color:white;
+}
+
+#four {
+    margin-left: 150px;
+    margin-top: 40px;
+    position: fixed;
+}
+
+#fBtn {
+    width: 30px;
+    color:white;
+}
+
+#five {    
+    margin-left: 250px;
+    margin-top: 40px;
+    position: fixed;
+}
+
+#fiveBtn {
+    width: 20px;
+    height: 30px;
+    color:white;
+   
+
+}
+
+#six {    
+    margin-left: 250px;
+    margin-top: 5x;
+    position: fixed;
+}
+
+#sixBtn {
+    width: 20px;
+    
+    color:white;
+   
+
+}
+
+#txt {
+    margin-left: -13px;
+    margin-top: 500px;
+    position:fixed;
+}
+
+h2 {
+    margin-left: 30px;
+    margin-top: 25px;
+    font-size: 10px;
+    color: black;
+    position:fixed;
+}
+
+
+.button{
+    color:white;
+
+}
+
+#frame {    
+    width: 32px;
+    height: 420px;
+    margin-top: 0px;
+    margin-left: 0px;
+    position: fixed;
+    z-index: 99;
+}
+
+#frame_two {    
+    width: 352px;
+    height: 32px;
+    margin-top: 0px;
+    margin-left: 0px;
+    position: fixed;
+    z-index: 99;
+}
+
+#frame_three {    
+    width: 32px;
+    height: 420px;
+    margin-top: 0px;
+    margin-left: 320px;
+    position: fixed;
+    z-index: 99;
+}
+
+#frame_four {    
+    width: 352px;
+    height: 32px;
+    margin-top: 390px;
+    margin-left: 0px;
+    position: fixed;
+    z-index: 100;
+}
+
+#yes {
+    margin-left: 30px;
+    margin-top: 20px;
+    position:fixed;
+
+}
+
+#no {
+    margin-left: 240px;
+    margin-top: 20px;
+    position:fixed;
+    /*font-family: 'Press Start 2P', cursive;*/
+
+}
+
+#yodeantes {
+    margin-left: 120px;
+    margin-top: 20px;
+    position:fixed;
+}
+
+
+/*PASADO.HTML*/
+
+#rtLeft {
+    margin-top: 30px;
+    margin-left: 60px;
+    position: fixed;
+}
+
+#mvForward {
+    margin-top: 30px;
+    margin-left: 160px;
+    position: fixed;
+}
+
+#rtRight {
+    margin-top: 30px;
+    margin-left: 260px;
+    position: fixed;
+}
+
+#time {
+    position: fixed;
+    margin-top: 10px;
+    margin-left: 260px;
+}
+
+
+h1 {
+    font-size: 15px;
+}
+
+#menu{
+    position: fixed;
+    z-index: 99;
+    margin-top: -30px;
+    margin-left: 20px;
+}
+
+#lft {
+    width: 30px;
+}
+
+#front {
+    width: 30px;
+}
+
+#right {
+    width: 30px;
+}
+
+/*INFERNO*/
+
+#play {
+    margin-left: 140px;
+    margin-top: 25px;
+    position: fixed;
+    z-index: 90;
+}
+
+#play_two {
+    margin-left: 140px;
+    margin-top: 25px;
+    position: fixed;
+    z-index: 95;
+}
+
+#myVideo {
+    width: 252;
+    height: 620;
+    position: fixed;
+    margin-left: 10px;
+    margin-top: 20px;
+    z-index: 90px;
+}
+
+#bocina {
+    position: fixed;
+    z-index: 99;
+    width: 35px;
+    height: 900;
+    margin-top: 348px;
+}
+
+#bocina2 {
+    position: fixed;
+    z-index: 99;
+    width: 35px;
+    height: 900;
+    margin-top: 348px;
+    margin-left: 316px;
+}
+
+#art {
+    position: fixed;
+    z-index: 98;
+    width: 35px;
+    height: 522px;
+}
+
+#RghtArt {
+    position: fixed;
+    z-index: 98;
+    width: 36px;
+    height: 522px;
+    margin-left: 316px;
+}
+
+#top {
+    position: fixed;
+    z-index: 99;
+    width: 353px;
+    height: 28px;
+
+}
+
+#but1 {
+    position: fixed;
+    z-index: 99;
+    width: 80px;
+    height: 28px;
+    margin-top: 430px;
+    margin-left: 55px;
+
+
+}
+
+@media screen and (min-width: 601px) {
+    #play {
+        margin-left: 140px;
+        margin-top: 25px;
+        position: fixed;
+        z-index: 96;
+    }
+    
+    #play_two {
+        margin-left: 140px;
+        margin-top: 25px;
+        position: fixed;
+        z-index: 90;
+    }
+}
