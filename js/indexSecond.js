@@ -181,13 +181,18 @@ function setupWorld() {
         manager.onLoad = function ( ) {
             var play = document.getElementById("but1");
             play.remove();
-            var audio = document.getElementById("myAudio");
-            audio.loop=true;
-            audio.play();
+
             cameraChanges();
             textLyrics();
+
             controls.update();
             console.log( 'Loading complete!');
+
+            setInterval(function(){
+                console.log("listopmiherma");
+                cameraChanges();
+                textLyrics();
+            }, 59000);
         };
     
     
@@ -218,6 +223,11 @@ function setupWorld() {
                     object.frustumCulled = false;
                 
                 } );
+
+
+                var audio = document.getElementById("myAudio");
+                audio.loop=true;
+                audio.play();
     
                 mixer = new THREE.AnimationMixer(gltf.scene);
                 var action = mixer.clipAction(gltf.animations[0]);
@@ -229,11 +239,13 @@ function setupWorld() {
             },
             function ( xhr ) {
                 console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
             },
             function ( error ) {
                 console.log( 'An error happened' );
             }
         );
+
     }
 
 
@@ -444,11 +456,7 @@ function setupWorld() {
 
     }
 
-    setInterval(function(){
-        console.log("listopmiherma");
-        cameraChanges();
-        textLyrics();
-    }, 59000);
+
 
    /* setInterval(function(){
         console.log("listopmiherma");
