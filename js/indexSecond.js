@@ -12,6 +12,8 @@ var frontLight = new THREE.DirectionalLight( 0xFFFFFF, 3 ); // soft white light
 
 
 
+
+
 setUp();
 
 function setUp() {
@@ -136,6 +138,7 @@ function setupWorld() {
     floor.rotation.x = Math.PI / 2;
     floor.receiveShadow = true;
     scene.add(floor);
+
     
 
     var murakit = new THREE.MTLLoader();
@@ -169,9 +172,18 @@ function setupWorld() {
 }
 
 
+    var audio = document.getElementById("but1");
+    audio.addEventListener("touchstart", handleStart, false);
+    audio.addEventListener("touchend", handleEnd, false);
+    audio.addEventListener("touchcancel", handleCancel, false);
+    audio.addEventListener("touchmove", handleMove, false);
+
+    audio.addEventListener("click", onPlay, false);
 
 
-    function glbLoad() {
+    function onPlay() {
+       
+
         const manager = new THREE.LoadingManager();
         manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
             console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
@@ -180,10 +192,13 @@ function setupWorld() {
     
         manager.onLoad = function ( ) {
             var play = document.getElementById("but1");
+            var mp3 = document.getElementById("myAudio");
+
             play.remove();
 
             cameraChanges();
             textLyrics();
+            mp3.play();
 
             controls.update();
             console.log( 'Loading complete!');
@@ -193,6 +208,8 @@ function setupWorld() {
                 cameraChanges();
                 textLyrics();
             }, 59000);
+
+          
         };
     
     
@@ -225,9 +242,6 @@ function setupWorld() {
                 } );
 
 
-                var audio = document.getElementById("myAudio");
-                audio.loop=true;
-                audio.play();
     
                 mixer = new THREE.AnimationMixer(gltf.scene);
                 var action = mixer.clipAction(gltf.animations[0]);
@@ -247,6 +261,105 @@ function setupWorld() {
         );
 
     }
+
+
+    function handleStart(evt) {
+        evt.preventDefault();
+        
+        const manager = new THREE.LoadingManager();
+        manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
+            console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+    
+        };
+    
+        manager.onLoad = function ( ) {
+            var play = document.getElementById("but1");
+            var mp3 = document.getElementById("myAudio");
+
+            play.remove();
+
+            cameraChanges();
+            textLyrics();
+            mp3.play();
+
+            controls.update();
+            console.log( 'Loading complete!');
+
+            setInterval(function(){
+                console.log("listopmiherma");
+                cameraChanges();
+                textLyrics();
+            }, 59000);
+
+          
+        };
+    
+    
+        manager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
+            console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+        };
+    
+        manager.onError = function ( url ) {
+            console.log( 'There was an error loading ' + url );
+        };
+    
+    
+        var loader = new THREE.GLTFLoader(manager);
+            loader.load('models/nuebayuaaaa.glb', function ( gltf ) {
+               /* const tloader = new THREE.TextureLoader();
+                tloader.load("img/pl07_skin.png", function(tloader){
+                    gltf.scene.traverse( function ( child ) {
+                        if ( child.isMesh ) {
+                        child.material.map = tloader;
+                        child.material.needsUpdate = true;
+                        child.material.flipY = false;
+                        }
+    
+                    });
+                });*/
+                gltf.scene.traverse( function( object ) {
+    
+                    object.frustumCulled = false;
+                
+                } );
+
+
+    
+                mixer = new THREE.AnimationMixer(gltf.scene);
+                var action = mixer.clipAction(gltf.animations[0]);
+                action.play();
+                scene.add( gltf  );
+               
+               // scene.add( mesh );
+                scene.add( gltf.scene );
+            },
+            function ( xhr ) {
+                console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+            },
+            function ( error ) {
+                console.log( 'An error happened' );
+            }
+        );
+;
+    }
+
+    function handleEnd(evt) {
+        evt.preventDefault();
+        
+    }
+
+    function handleCancel(evt) {
+        evt.preventDefault();
+    }
+
+    function handleMove(evt) {
+        evt.preventDefault();
+    }
+
+
+
+
 
 
     function animate() {
@@ -315,6 +428,8 @@ function setupWorld() {
         cameraChanges(x);
         textLyrics(x);
     }*/
+
+    
 
 
 
