@@ -67,6 +67,17 @@ body {
     text-shadow: 2px 2px 5px purple;
 }
 
+#lyrics {
+    position: fixed;
+    z-index: 99;
+    margin-top: 350px;
+    margin-left: 40px;
+    color:black;
+    font-size: 24px;
+    font-family: 'Tangerine', cursive;
+    text-shadow: 4px 0 3px #e426bb, 0 0 5px #9900ff;
+
+}
 
 #buttons {
     width: 352px;

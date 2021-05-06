@@ -19,6 +19,7 @@ function setUp() {
     animate(); 
     //loadCubeMap ('js/3dcubemap/eight/dark-s_' , '.png');
     lights();
+   // textLyrics();
 }
 
 function setupWorld() {
@@ -147,9 +148,8 @@ function setupWorld() {
         var audio = document.getElementById("myAudio");
         audio.loop=true;
         audio.play();
-
         cameraChanges();
-        
+        textLyrics();
         console.log( 'Loading complete!');
     };
 
@@ -164,7 +164,7 @@ function setupWorld() {
 
 
     var loader = new THREE.GLTFLoader(manager);
-        loader.load('models/untitled1COPY.glb', function ( gltf ) {
+        loader.load('models/nuebayuaaaa.glb', function ( gltf ) {
            /* const tloader = new THREE.TextureLoader();
             tloader.load("img/pl07_skin.png", function(tloader){
                 gltf.scene.traverse( function ( child ) {
@@ -256,7 +256,9 @@ function setupWorld() {
        // rmapped ++;
         //mixer.update(this.clock.getDelta());
         //console.log(delta);
+
         controls.update();
+
     }
 
 
@@ -271,10 +273,10 @@ function setupWorld() {
         pointlight.position.x=600;
         //scene.add( pointlight ); 
 
-        var pointlight = new THREE.PointLight( 0xFFFFFF, 3 ); // soft white light
+        var pointlight = new THREE.HemisphereLight( 0xFFFFFF, 1 ); // soft white light
         pointlight.position.y=800;
-        pointlight.position.x=200;
-    // scene.add( pointlight ); 
+        pointlight.position.z=1900;
+        scene.add( pointlight ); 
 
 
         var pointlight = new THREE.PointLight( 0XFFFFFF , 1 ); // soft white light
@@ -289,25 +291,156 @@ function setupWorld() {
 
     }
 
-
    /* for (let x=0; x< 2000; x++){
         cameraChanges(x);
+        textLyrics(x);
     }*/
+
+
+
+
 
     function cameraChanges() {
             setTimeout(function() {
                 console.log("Afrontview1");
+                camera.position.set(30, 30, 10);
+                controls.update();
+            }, 2435);
+
+            setTimeout(function() {
+                console.log("Afrontview1");
                 camera.position.set(30, 20, -10);
                 controls.update();
-            }, 2000);
+            }, 4526);
         
         
             setTimeout(function() {
                 console.log("Bfrontview2");
-                camera.position.set(30, 120, -100);
+                camera.position.set(0, 0, -0);
                 controls.update();
-            }, 5000);
+            }, 6497);
+
+            setTimeout(function() {
+                console.log("Bfrontview2");
+                camera.position.set(0.7, 240, 105);
+                controls.update();
+            }, 10000);
+
+            setTimeout(function() {
+                console.log("Bfrontview2");
+                camera.position.set(77.03, 281, 237);
+                controls.update();
+            }, 15205);
+
+            setTimeout(function() {
+                console.log("Bfrontview2");
+                camera.position.set(129, 180, 289);
+                controls.update();
+            }, 20700);
+
+            setTimeout(function() {
+                console.log("Bfrontview2");
+                camera.position.set(300, 300, 300);
+                controls.update();
+            }, 22330);
+
+            setTimeout(function() {
+                console.log("Bfrontview2");
+                camera.position.set(129, 180, 289);
+                controls.update();
+            }, 23900);
+
+            setTimeout(function() {
+                console.log("Bfrontview2");
+                camera.position.set(300, 300, 300);
+                controls.update();
+            }, 25380);
+
+            setTimeout(function() {
+                console.log("Bfrontview2");
+                camera.position.set(0.7, 240, 105);
+                controls.update();
+            }, 32100);
+
+            setTimeout(function() {
+                console.log("Bfrontview2");
+                camera.position.set(77.03, 281, 237);
+                controls.update();
+            }, 37440);
+
+            setTimeout(function() {
+                console.log("Bfrontview2");
+                camera.position.set(500, 500, 500);
+                controls.update();
+            }, 41610);
+
+            setTimeout(function() {
+                console.log("Afrontview1");
+                camera.position.set(30, 30, 10);
+                controls.update();
+            }, 47200);
+
+            setTimeout(function() {
+                console.log("Afrontview1");
+                camera.position.set(30, 20, -10);
+                controls.update();
+            }, 488200);
+        
+        
+            setTimeout(function() {
+                console.log("Bfrontview2");
+                camera.position.set(0, 0, -0);
+                controls.update();
+            }, 50400);
+
+            setTimeout(function() {
+                console.log("Bfrontview2");
+                camera.position.set(0.7, 240, 105);
+                controls.update();
+            }, 51880);
+
+            setTimeout(function() {
+                console.log("Bfrontview2");
+                camera.position.set(500, 500, 500);
+                controls.update();
+            }, 54750);
+
+
     }
+
+    
+
+    function textLyrics() {
+        setTimeout(function() {
+            document.getElementById("lyrics").innerHTML="SINTETIZADOR" + '<br>' + "FELIZ X4";
+        }, 700);
+    
+    
+        setTimeout(function() {
+            document.getElementById("lyrics").innerHTML="BABY YA ES URGENTE" + '<br>' + "CURAR ESE DOLOR X2";
+        }, 10000);
+
+        setTimeout(function() {
+            document.getElementById("lyrics").innerHTML="SINTETIZADOR" + '<br>' + "FELIZ X4";
+        }, 20700);
+
+        setTimeout(function() {
+            document.getElementById("lyrics").innerHTML="BABY YA ES URGENTE" + '<br>' + "CURAR ESE DOLOR X2";
+        }, 32110);
+
+        setTimeout(function() {
+            document.getElementById("lyrics").innerHTML="SINTETIZADOR" + '<br>' + "FELIZ X4";
+        }, 47200);
+
+    
+
+    }
+
+    setInterval(function(){
+        console.log("listopmiherma");
+        cameraChanges();
+        textLyrics();
+    }, 59000);
 
    /* setInterval(function(){
         console.log("listopmiherma");
