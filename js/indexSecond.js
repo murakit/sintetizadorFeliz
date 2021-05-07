@@ -169,6 +169,68 @@ function setupWorld() {
       });
     });
 
+    const manager = new THREE.LoadingManager();
+    manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
+        console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+       /* var mp3 = document.getElementById("myAudio");
+        mp3.play();*/
+    };
+
+    manager.onLoad = function ( ) {
+        console.log( 'Loading complete!');
+      
+    };
+
+
+    manager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
+        console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+    };
+
+    manager.onError = function ( url ) {
+        console.log( 'There was an error loading ' + url );
+    };
+
+
+    var loader = new THREE.GLTFLoader(manager);
+        loader.load('models/nuebayuaaaa.glb', function ( gltf ) {
+           /* const tloader = new THREE.TextureLoader();
+            tloader.load("img/pl07_skin.png", function(tloader){
+                gltf.scene.traverse( function ( child ) {
+                    if ( child.isMesh ) {
+                    child.material.map = tloader;
+                    child.material.needsUpdate = true;
+                    child.material.flipY = false;
+                    }
+
+                });
+            });*/
+
+            gltf.scene.traverse( function( object ) {
+
+                object.frustumCulled = false;
+            
+            } );
+
+
+
+            mixer = new THREE.AnimationMixer(gltf.scene);
+            var action = mixer.clipAction(gltf.animations[0]);
+            action.play();
+            scene.add( gltf  );
+           
+           // scene.add( mesh );
+            scene.add( gltf.scene );
+
+        },
+        function ( xhr ) {
+            console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+        },
+        function ( error ) {
+            console.log( 'An error happened' );
+        }
+    );
+
 }
 
 
@@ -182,170 +244,47 @@ function setupWorld() {
 
 
     function onPlay() {
-       
+        var mp3 = document.getElementById("myAudio");
+        mp3.play();
 
-        const manager = new THREE.LoadingManager();
-        manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
-            console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
-           /* var mp3 = document.getElementById("myAudio");
-            mp3.play();*/
-        };
-    
-        manager.onLoad = function ( ) {
-            var play = document.getElementById("but1");
-            play.remove();
+        var play = document.getElementById("but1");
+        play.remove();
 
+        cameraChanges();
+        textLyrics();
+
+        controls.update();
+
+        setInterval(function(){
+            console.log("listopmiherma");
             cameraChanges();
             textLyrics();
+        }, 59000);
 
-            controls.update();
-            console.log( 'Loading complete!');
-
-            setInterval(function(){
-                console.log("listopmiherma");
-                cameraChanges();
-                textLyrics();
-            }, 59000);
-
-          
-        };
-    
-    
-        manager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
-            console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
-        };
-    
-        manager.onError = function ( url ) {
-            console.log( 'There was an error loading ' + url );
-        };
-    
-    
-        var loader = new THREE.GLTFLoader(manager);
-            loader.load('models/nuebayuaaaa.glb', function ( gltf ) {
-               /* const tloader = new THREE.TextureLoader();
-                tloader.load("img/pl07_skin.png", function(tloader){
-                    gltf.scene.traverse( function ( child ) {
-                        if ( child.isMesh ) {
-                        child.material.map = tloader;
-                        child.material.needsUpdate = true;
-                        child.material.flipY = false;
-                        }
-    
-                    });
-                });*/
-
-                gltf.scene.traverse( function( object ) {
-    
-                    object.frustumCulled = false;
-                
-                } );
-
-
-    
-                mixer = new THREE.AnimationMixer(gltf.scene);
-                var action = mixer.clipAction(gltf.animations[0]);
-                action.play();
-                scene.add( gltf  );
-               
-               // scene.add( mesh );
-                scene.add( gltf.scene );
-                var mp3 = document.getElementById("myAudio");
-                mp3.play();
-            },
-            function ( xhr ) {
-                console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-
-            },
-            function ( error ) {
-                console.log( 'An error happened' );
-            }
-        );
 
     }
 
 
     function handleStart(evt) {
-
         evt.preventDefault();
 
-        const manager = new THREE.LoadingManager();
-        manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
-            console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
-            /*var mp3 = document.getElementById("myAudio");
-            mp3.play();*/
-        };
-    
-        manager.onLoad = function ( ) {
-            var play = document.getElementById("but1");
-            play.remove();
+        var mp3 = document.getElementById("myAudio");
+        mp3.play();
+
+        var play = document.getElementById("but1");
+        play.remove();
+
+        cameraChanges();
+        textLyrics();
+
+        controls.update();
+
+        setInterval(function(){
+            console.log("listopmiherma");
             cameraChanges();
             textLyrics();
-
-
-
-            controls.update();
-            console.log( 'Loading complete!');
-
-            setInterval(function(){
-                console.log("listopmiherma");
-                cameraChanges();
-                textLyrics();
-            }, 59000);
-
-          
-        };
-    
-    
-        manager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
-            console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
-        };
-    
-        manager.onError = function ( url ) {
-            console.log( 'There was an error loading ' + url );
-        };
-    
-    
-        var loader = new THREE.GLTFLoader(manager);
-            loader.load('models/nuebayuaaaa.glb', function ( gltf ) {
-               /* const tloader = new THREE.TextureLoader();
-                tloader.load("img/pl07_skin.png", function(tloader){
-                    gltf.scene.traverse( function ( child ) {
-                        if ( child.isMesh ) {
-                        child.material.map = tloader;
-                        child.material.needsUpdate = true;
-                        child.material.flipY = false;
-                        }
-    
-                    });
-                });*/
-
-                gltf.scene.traverse( function( object ) {
-    
-                    object.frustumCulled = false;
-                
-                } );
-
-
-    
-                mixer = new THREE.AnimationMixer(gltf.scene);
-                var action = mixer.clipAction(gltf.animations[0]);
-                action.play();
-                scene.add( gltf  );
-               
-               // scene.add( mesh );
-                scene.add( gltf.scene );
-                var mp3 = document.getElementById("myAudio");
-                mp3.play();
-            },
-            function ( xhr ) {
-                console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-
-            },
-            function ( error ) {
-                console.log( 'An error happened' );
-            }
-        );
-    ;}
+        }, 59000);
+    }
 
     function handleEnd(evt) {
         evt.preventDefault();
