@@ -187,8 +187,8 @@ function setupWorld() {
         const manager = new THREE.LoadingManager();
         manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
             console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
-            var mp3 = document.getElementById("myAudio");
-            mp3.play();
+           /* var mp3 = document.getElementById("myAudio");
+            mp3.play();*/
         };
     
         manager.onLoad = function ( ) {
@@ -233,6 +233,8 @@ function setupWorld() {
     
                     });
                 });*/
+                var mp3 = document.getElementById("myAudio");
+                mp3.play();
                 gltf.scene.traverse( function( object ) {
     
                     object.frustumCulled = false;
@@ -268,8 +270,8 @@ function setupWorld() {
         const manager = new THREE.LoadingManager();
         manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
             console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
-            var mp3 = document.getElementById("myAudio");
-            mp3.play();
+            /*var mp3 = document.getElementById("myAudio");
+            mp3.play();*/
         };
     
         manager.onLoad = function ( ) {
@@ -315,6 +317,8 @@ function setupWorld() {
     
                     });
                 });*/
+                var mp3 = document.getElementById("myAudio");
+                mp3.play();
                 gltf.scene.traverse( function( object ) {
     
                     object.frustumCulled = false;
