@@ -210,9 +210,7 @@ function setupWorld() {
                 object.frustumCulled = false;
             
             } );
-
-
-
+            
             mixer = new THREE.AnimationMixer(gltf.scene);
             var action = mixer.clipAction(gltf.animations[0]);
             action.play();
@@ -244,16 +242,17 @@ function setupWorld() {
 
 
     function onPlay() {
+        cameraChanges();
+        textLyrics();
+        controls.update();
+
         var mp3 = document.getElementById("myAudio");
         mp3.play();
 
         var play = document.getElementById("but1");
         play.remove();
 
-        cameraChanges();
-        textLyrics();
 
-        controls.update();
 
         setInterval(function(){
             console.log("listopmiherma");
@@ -267,6 +266,9 @@ function setupWorld() {
 
     function handleStart(evt) {
         evt.preventDefault();
+        cameraChanges();
+        textLyrics();
+        controls.update();
 
         var mp3 = document.getElementById("myAudio");
         mp3.play();
@@ -274,10 +276,7 @@ function setupWorld() {
         var play = document.getElementById("but1");
         play.remove();
 
-        cameraChanges();
-        textLyrics();
 
-        controls.update();
 
         setInterval(function(){
             console.log("listopmiherma");
