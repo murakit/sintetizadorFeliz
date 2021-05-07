@@ -265,7 +265,6 @@ function setupWorld() {
     function handleStart(evt) {
 
         evt.preventDefault();
-        var play = document.getElementById("but1");
 
         const manager = new THREE.LoadingManager();
         manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
@@ -280,6 +279,7 @@ function setupWorld() {
 
             cameraChanges();
             textLyrics();
+            var mp3 = document.getElementById("myAudio");
             mp3.play();
 
 
@@ -323,8 +323,7 @@ function setupWorld() {
                     object.frustumCulled = false;
                 
                 } );
-                var mp3 = document.getElementById("myAudio");
-                mp3.play();
+
 
     
                 mixer = new THREE.AnimationMixer(gltf.scene);
@@ -361,8 +360,9 @@ function setupWorld() {
 
 
 
-    function glbLoader() {
-
+    function glbLoad() {
+        var mp3 = document.getElementById("myAudio");
+        mp3.play();
     }
 
 

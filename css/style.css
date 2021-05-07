@@ -369,6 +369,17 @@ h1 {
 
 }
 
+#but2 {
+    position: fixed;
+    z-index: 99;
+    width: 80px;
+    height: 80px;
+    margin-top: 270px;
+    margin-left: 230px;
+
+
+}
+
 @media screen and (min-width: 601px) {
     #play {
         margin-left: 140px;
