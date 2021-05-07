@@ -187,17 +187,16 @@ function setupWorld() {
         const manager = new THREE.LoadingManager();
         manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
             console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
-    
+            var mp3 = document.getElementById("myAudio");
+            mp3.play();
         };
     
         manager.onLoad = function ( ) {
             var play = document.getElementById("but1");
-
             play.remove();
 
             cameraChanges();
             textLyrics();
-            mp3.play();
 
             controls.update();
             console.log( 'Loading complete!');
@@ -269,18 +268,16 @@ function setupWorld() {
         const manager = new THREE.LoadingManager();
         manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
             console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
-    
+            var mp3 = document.getElementById("myAudio");
+            mp3.play();
         };
     
         manager.onLoad = function ( ) {
             var play = document.getElementById("but1");
-
             play.remove();
-
             cameraChanges();
             textLyrics();
-            var mp3 = document.getElementById("myAudio");
-            mp3.play();
+
 
 
             controls.update();
@@ -342,8 +339,7 @@ function setupWorld() {
                 console.log( 'An error happened' );
             }
         );
-;
-    }
+    ;}
 
     function handleEnd(evt) {
         evt.preventDefault();
