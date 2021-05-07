@@ -242,12 +242,17 @@ function setupWorld() {
 
 
     function onPlay() {
-        cameraChanges();
         var mp3 = document.getElementById("myAudio");
         mp3.play();
-        textLyrics();
-        controls.update();
 
+        if (mp3.duration > 0 && !mp3.paused) {
+            console.log("playiiii");
+            textLyrics();
+            cameraChanges();
+        } else {
+            //Not playing...maybe paused, stopped or never played.
+        }
+        controls.update();
 
 
         var play = document.getElementById("but1");
@@ -267,20 +272,21 @@ function setupWorld() {
 
     function handleStart(evt) {
         evt.preventDefault();
-        cameraChanges();
+
         var mp3 = document.getElementById("myAudio");
         mp3.play();
 
-        textLyrics();
+        if (mp3.duration > 0 && !mp3.paused) {
+            console.log("playiiii");
+            textLyrics();
+            cameraChanges();
+        } else {
+            //Not playing...maybe paused, stopped or never played.
+        }
         controls.update();
-
-
 
         var play = document.getElementById("but1");
         play.remove();
-
-
-
         setInterval(function(){
             console.log("listopmiherma");
             cameraChanges();
