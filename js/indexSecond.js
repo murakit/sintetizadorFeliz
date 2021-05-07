@@ -264,6 +264,7 @@ function setupWorld() {
 
 
     function handleStart(evt) {
+
         evt.preventDefault();
         
         const manager = new THREE.LoadingManager();
@@ -274,13 +275,12 @@ function setupWorld() {
     
         manager.onLoad = function ( ) {
             var play = document.getElementById("but1");
-            var mp3 = document.getElementById("myAudio");
 
             play.remove();
 
             cameraChanges();
             textLyrics();
-            mp3.play();
+           
 
             controls.update();
             console.log( 'Loading complete!');
@@ -322,7 +322,8 @@ function setupWorld() {
                     object.frustumCulled = false;
                 
                 } );
-
+                var mp3 = document.getElementById("myAudio");
+                mp3.play();
 
     
                 mixer = new THREE.AnimationMixer(gltf.scene);
