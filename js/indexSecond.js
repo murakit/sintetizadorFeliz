@@ -233,8 +233,7 @@ function setupWorld() {
     
                     });
                 });*/
-                var mp3 = document.getElementById("myAudio");
-                mp3.play();
+
                 gltf.scene.traverse( function( object ) {
     
                     object.frustumCulled = false;
@@ -250,6 +249,8 @@ function setupWorld() {
                
                // scene.add( mesh );
                 scene.add( gltf.scene );
+                var mp3 = document.getElementById("myAudio");
+                mp3.play();
             },
             function ( xhr ) {
                 console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
@@ -317,8 +318,7 @@ function setupWorld() {
     
                     });
                 });*/
-                var mp3 = document.getElementById("myAudio");
-                mp3.play();
+
                 gltf.scene.traverse( function( object ) {
     
                     object.frustumCulled = false;
@@ -334,6 +334,8 @@ function setupWorld() {
                
                // scene.add( mesh );
                 scene.add( gltf.scene );
+                var mp3 = document.getElementById("myAudio");
+                mp3.play();
             },
             function ( xhr ) {
                 console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
