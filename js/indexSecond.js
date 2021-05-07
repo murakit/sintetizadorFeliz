@@ -192,7 +192,6 @@ function setupWorld() {
     
         manager.onLoad = function ( ) {
             var play = document.getElementById("but1");
-            var mp3 = document.getElementById("myAudio");
 
             play.remove();
 
@@ -266,7 +265,8 @@ function setupWorld() {
     function handleStart(evt) {
 
         evt.preventDefault();
-        
+        var play = document.getElementById("but1");
+
         const manager = new THREE.LoadingManager();
         manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
             console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
@@ -280,7 +280,8 @@ function setupWorld() {
 
             cameraChanges();
             textLyrics();
-           
+            mp3.play();
+
 
             controls.update();
             console.log( 'Loading complete!');
@@ -359,6 +360,10 @@ function setupWorld() {
     }
 
 
+
+    function glbLoader() {
+
+    }
 
 
 
