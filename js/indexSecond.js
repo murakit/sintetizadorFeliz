@@ -243,11 +243,12 @@ function setupWorld() {
 
     function onPlay() {
         cameraChanges();
+        var mp3 = document.getElementById("myAudio");
+        mp3.play();
         textLyrics();
         controls.update();
 
-        var mp3 = document.getElementById("myAudio");
-        mp3.play();
+
 
         var play = document.getElementById("but1");
         play.remove();
@@ -267,11 +268,13 @@ function setupWorld() {
     function handleStart(evt) {
         evt.preventDefault();
         cameraChanges();
+        var mp3 = document.getElementById("myAudio");
+        mp3.play();
+
         textLyrics();
         controls.update();
 
-        var mp3 = document.getElementById("myAudio");
-        mp3.play();
+
 
         var play = document.getElementById("but1");
         play.remove();
