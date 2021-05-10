@@ -274,6 +274,7 @@ function setupWorld() {
         evt.preventDefault();
 
         var mp3 = document.getElementById("myAudio");
+        mp3.loop=true;
         mp3.play();
 
         if (mp3.duration > 0 && !mp3.paused) {
@@ -320,18 +321,11 @@ function setupWorld() {
     function animate() {
         requestAnimationFrame( animate );
         //var delta = clock.getDelta();
-
-
         var delta = clock.getDelta();
-
        /* var h = rmapped * 0.0200 % 1;
         var s = 0.5;
         var l = 0.5;
-
-
         frontLight.color.setHSL ( h, s, l );*/
-
-    
         if (mixer) {
             mixer.update(delta);
         }
@@ -344,7 +338,6 @@ function setupWorld() {
        // rmapped ++;
         //mixer.update(this.clock.getDelta());
         //console.log(delta);
-
         controls.update();
 
     }

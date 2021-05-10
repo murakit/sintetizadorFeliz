@@ -80,6 +80,17 @@ body {
 
 }
 
+#lyricsEntiendo {
+    position: fixed;
+    z-index: 99;
+    margin-top: 340px;
+    margin-left: 40px;
+    color:rgb(255, 255, 255);
+    font-size: 30px;
+    font-family: 'Tangerine', cursive;
+    text-shadow: 4px 0 3px #ffffff, 0 0 5px #e426bb; 
+}
+
 #buttons {
     width: 352px;
     height: 80px;
