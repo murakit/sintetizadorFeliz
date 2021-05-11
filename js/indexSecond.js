@@ -249,6 +249,7 @@ function setupWorld() {
             console.log("playiiii");
             textLyrics();
             cameraChanges();
+
         } else {
             //Not playing...maybe paused, stopped or never played.
         }
@@ -259,12 +260,11 @@ function setupWorld() {
         play.remove();
 
 
-
-        setInterval(function(){
+      /*  setInterval(function(){
             console.log("listopmiherma");
             cameraChanges();
             textLyrics();
-        }, 59000);
+        }, 59000);*/
 
 
     }
@@ -274,13 +274,14 @@ function setupWorld() {
         evt.preventDefault();
 
         var mp3 = document.getElementById("myAudio");
-        mp3.loop=true;
         mp3.play();
+        mp3.loop=true;
 
         if (!mp3.paused || mp3.currentTime) {
             console.log("playiiii");
             textLyrics();
             cameraChanges();
+
         } else {
             //Not playing...maybe paused, stopped or never played.
         }
