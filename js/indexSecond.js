@@ -245,11 +245,10 @@ function setupWorld() {
         var mp3 = document.getElementById("myAudio");
         mp3.play();
 
-        if (mp3.paused || mp3.currentTime) {
+        if (!mp3.paused || myAudio.currentTime) {
             console.log("playiiii");
             textLyrics();
             cameraChanges();
-
         } else {
             //Not playing...maybe paused, stopped or never played.
         }
@@ -260,11 +259,12 @@ function setupWorld() {
         play.remove();
 
 
-      /*  setInterval(function(){
+
+        setInterval(function(){
             console.log("listopmiherma");
             cameraChanges();
             textLyrics();
-        }, 59000);*/
+        }, 59000);
 
 
     }
@@ -274,14 +274,13 @@ function setupWorld() {
         evt.preventDefault();
 
         var mp3 = document.getElementById("myAudio");
-        mp3.play();
         mp3.loop=true;
+        mp3.play();
 
-        if (!mp3.paused || mp3.currentTime) {
+        if (!mp3.paused || myAudio.currentTime) {
             console.log("playiiii");
             textLyrics();
             cameraChanges();
-
         } else {
             //Not playing...maybe paused, stopped or never played.
         }
@@ -311,10 +310,20 @@ function setupWorld() {
 
 
 
-    function glbLoad() {
-        var mp3 = document.getElementById("myAudio");
-        mp3.play();
-    }
+   /* for (let x=0; x< 2000; x++){
+        cameraChanges(x);
+        textLyrics(x);
+    }*/
+
+    
+  /*  
+    random camera changes
+  
+  setInterval(function () {
+        var rand =  Math.random()*2 - 1;
+        camera.position.set(rand * camera.position.x, rand * camera.position.z, rand * camera.position.y);
+    }, 3000);*/
+
 
 
 

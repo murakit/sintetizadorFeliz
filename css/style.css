@@ -94,13 +94,35 @@ body {
 #buttons {
     width: 352px;
     height: 80px;
+    overflow: scroll;
    /* border: 5.5px solid;
     border-style: outset;*/
-    margin-top: 435px;
+    margin-top: 408px;
     margin-left: 10px;
-    position: fixed;
+    position: absolute;
+
+
+
+
 
 }
+
+p{
+    color: red;
+    font-size:16px;
+    margin-left: 50px;
+   
+}
+
+a {
+    color: blue;
+    text-decoration: underline;} 
+
+a:hover { color:white;
+    text-decoration: none;
+ }
+.nav a { color:white; };
+
 
 #first {
     margin-left: 40px;
@@ -390,6 +412,9 @@ h1 {
 
 
 }
+
+
+
 
 @media screen and (min-width: 601px) {
     #play {
