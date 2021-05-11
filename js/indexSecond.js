@@ -245,7 +245,7 @@ function setupWorld() {
         var mp3 = document.getElementById("myAudio");
         mp3.play();
 
-        if (mp3.duration > 0 && !mp3.paused) {
+        if (mp3.paused || mp3.currentTime) {
             console.log("playiiii");
             textLyrics();
             cameraChanges();
@@ -277,7 +277,7 @@ function setupWorld() {
         mp3.loop=true;
         mp3.play();
 
-        if (mp3.duration > 0 && !mp3.paused) {
+        if (!mp3.paused || mp3.currentTime) {
             console.log("playiiii");
             textLyrics();
             cameraChanges();
