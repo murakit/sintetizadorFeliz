@@ -164,7 +164,7 @@ function setupWorld() {
 
 
     var loader = new THREE.GLTFLoader(manager);
-        loader.load('models/yoentiendo/hermosanueba1.glb', function ( gltf ) {
+        loader.load('models/yoentiendo/hermosanueba2.glb', function ( gltf ) {
            /* const tloader = new THREE.TextureLoader();
             tloader.load("img/pl07_skin.png", function(tloader){
                 gltf.scene.traverse( function ( child ) {
@@ -400,7 +400,7 @@ function setupWorld() {
 
             setTimeout(function() {
                 console.log("Bfrontview2");
-                camera.position.set(-190, 300, 140);
+                camera.position.set(150, 300, 140);
                 controls.update();
             }, 20070);
 
