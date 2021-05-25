@@ -92,12 +92,12 @@ body {
 }
 
 #buttons {
-    width: 352px;
+    width: 348px;
     height: 80px;
     overflow: scroll;
    /* border: 5.5px solid;
     border-style: outset;*/
-    margin-top: 408px;
+    margin-top: 405px;
     margin-left: 10px;
     position: absolute;
 
@@ -109,8 +109,8 @@ body {
 
 p{
     color: red;
-    font-size:16px;
-    margin-left: 50px;
+    font-size:14px;
+    margin-left: 45px;
    
 }
 
