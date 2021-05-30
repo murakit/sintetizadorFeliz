@@ -231,7 +231,6 @@ function setupWorld() {
 
 }
 
-
     var audio = document.getElementById("but1");
     audio.addEventListener("touchstart", handleStart, false);
     audio.addEventListener("touchend", handleEnd, false);
@@ -243,6 +242,7 @@ function setupWorld() {
 
     function onPlay() {
         var mp3 = document.getElementById("myAudio");
+        mp3.loop = true;
         mp3.play();
 
         if (!mp3.paused || myAudio.currentTime) {

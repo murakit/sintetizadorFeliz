@@ -11,7 +11,7 @@ var dir = new THREE.Vector3();
 var speed = 40;
 var rmapped = 0;
 var frontLight = new THREE.DirectionalLight( 0xFFFFFF, 3 ); // soft white light
-var sphereTexture = new THREE.ImageUtils.loadTexture( 'img/space/butons.jpg' );
+var sphereTexture = new THREE.ImageUtils.loadTexture( 'img/space/music.png' );
 sphereTexture.wrapS = sphereTexture.wrapT = THREE.RepeatWrapping; 
 sphereTexture.repeat.set( 1, 1 );
 var sphereMaterial = new THREE.MeshBasicMaterial( { map: sphereTexture, side: THREE.DoubleSide, transparent:true } );
@@ -341,6 +341,7 @@ function setupWorld() {
     function animate() {
 
         sphere.rotation.z += 0.005;
+        sphere.rotation.y += 0.005;
 
 
         requestAnimationFrame( animate );
@@ -389,7 +390,7 @@ function setupWorld() {
         var pointlight = new THREE.HemisphereLight( 0xFFFFFF, 1 ); // soft white light
         pointlight.position.y=500;
         pointlight.position.x=600;
-        //scene.add( pointlight ); 
+        scene.add( pointlight ); 
 
         var pointlight = new THREE.HemisphereLight( 0xFFFFFF, 1 ); // soft white light
         pointlight.position.y=800;
@@ -402,7 +403,7 @@ function setupWorld() {
         pointlight.position.z=100;
         scene.add( pointlight ); 
 
-        var pointlight = new THREE.HemisphereLight( 0XFFFFFF , 20 ); // soft white light
+        var pointlight = new THREE.HemisphereLight( 0XFFFFFF , 1 ); // soft white light
         pointlight.position.y=700;
         pointlight.position.z=0;
         scene.add( pointlight ); 

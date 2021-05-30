@@ -71,8 +71,8 @@ body {
 #lyrics {
     position: fixed;
     z-index: 99;
-    margin-top: 350px;
-    margin-left: 40px;
+    margin-top: 340px;
+    margin-left: 43px;
     color:black;
     font-size: 24px;
     font-family: 'Tangerine', cursive;
@@ -90,6 +90,26 @@ body {
     font-family: 'Tangerine', cursive;
     text-shadow: 4px 0 3px #ffffff, 0 0 5px #e426bb; 
 }
+
+#volume-control {
+    position: fixed;
+    margin-top: -353px;
+    margin-left: -22px;
+
+    fill: pink;
+    color: violet;
+    background-color: violet;
+}
+
+input[type="range"] {
+    fill: pink;
+    color: violet;
+    background-color: violet;
+
+    -webkit-appearance: slider-vertical;
+    background-color: violet;
+
+  }
 
 #buttons {
     width: 348px;
@@ -367,6 +387,74 @@ h1 {
     margin-top: 348px;
     margin-left: 316px;
 }
+
+#luz {
+    position: fixed;
+    z-index: 99;
+    width: 75px;
+    height: 900;
+    margin-top: 18px;
+    margin-left: 80px;
+
+}
+
+#luz2 {
+    position: fixed;
+    z-index: 99;
+    width: 75px;
+    height: 900;
+    margin-top: 18px;
+    margin-left:144px;
+}
+
+#speaker {
+    position: fixed;
+    z-index: 999;
+    width: 35px;
+    height: 900;
+    margin-top: 10px;
+    margin-left:10px;
+}
+
+#luz3 {
+    position: fixed;
+    z-index: 99;
+    width: 75px;
+    height: 900;
+    margin-top: 18px;
+    margin-left:210px;
+}
+
+#logo {
+    position: fixed;
+    z-index: 99;
+    width: 35px;
+    height: 900;
+    margin-top: 358px;
+    margin-left: 270px;
+}
+
+#logo2 {
+    position: fixed;
+    z-index: 99;
+    width: 35px;
+    height: 900;
+    margin-top: 326px;
+    margin-left: 270px;
+}
+
+#logo3 {
+    position: fixed;
+    z-index: 99;
+    width: 35px;
+    height: 900;
+    margin-top: 280px;
+    margin-left: 270px;
+}
+
+
+
+
 
 #art {
     position: fixed;

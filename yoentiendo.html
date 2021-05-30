@@ -33,7 +33,11 @@
         <img id="frame_four" src="img/kissmusic.gif">
         <img id="bocina" src="img/gifsRef/dj.gif">
         <img id="bocina2" src="img/gifsRef/dj.gif">
-        
+        <img id="luz" src="img/stagelights_turning_pink_md_clr.gif">
+        <img id="luz2" src="img/stagelights_turning_pink_md_clr.gif">
+        <img id="luz3" src="img/stagelights_turning_pink_md_clr.gif">
+
+        <img id="speaker" src="img/speaker2.png">
 
         <img id="art" src="img/space/backy.jpg">
         <img id="RghtArt" src="img/space/rght.jpg">
@@ -46,7 +50,8 @@
         <img id="ScndframeTwo" src="img/logoMUSICAciber1.gif">
         <img id="ScndframeThree" src="img/notasmusicais2.gif">
 
-  
+        <input  id="volume-control"  type="range" min="0" max="30" value="23" step="5" >
+
     </div>
     
     <div id="buttons">
@@ -88,6 +93,14 @@
         audio.loop=true;
         audio.play();
       }
+
+
+      let audioThree = document.getElementById("myAudio");
+      let volume = document.querySelector("#volume-control");
+      volume.addEventListener("change", function(e) {
+          audioThree.volume = e.currentTarget.value / 10;
+      })
+
     </script>
 
   </body>
