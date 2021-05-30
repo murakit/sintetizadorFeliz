@@ -257,8 +257,8 @@ function setupWorld() {
 
         if (!mp3.paused || myAudio.currentTime) {
             console.log("playiiii");
-           // textLyrics();
-           // cameraChanges();
+            textLyrics();
+            cameraChanges();
         } else {
             //Not playing...maybe paused, stopped or never played.
         }
@@ -376,7 +376,7 @@ function setupWorld() {
         //console.log(delta);
         
         controls.update();
-        //console.log(camera.position);
+        console.log(camera.position);
 
     }
 
@@ -424,58 +424,58 @@ function setupWorld() {
     function cameraChanges() {
             setTimeout(function() {
                 console.log("Afrontview1");
-                camera.position.set(30, 30, 10);
+                camera.position.set(-100, 80, 130);
                 controls.update();
-            }, 2435);
+            }, 200);
 
             setTimeout(function() {
                 console.log("Afrontview1");
-                camera.position.set(30, 20, -10);
+                camera.position.set(-75, 68, 190);
                 controls.update();
-            }, 4526);
+            }, 1800);
         
         
             setTimeout(function() {
                 console.log("Bfrontview2");
-                camera.position.set(0, 0, -0);
+                camera.position.set(-33, 129, 172);
                 controls.update();
-            }, 6497);
+            }, 4800);
 
             setTimeout(function() {
                 console.log("Bfrontview2");
                 camera.position.set(0.7, 240, 105);
                 controls.update();
-            }, 10000);
+            }, 6200);
 
             setTimeout(function() {
                 console.log("Bfrontview2");
                 camera.position.set(77.03, 281, 237);
                 controls.update();
-            }, 15205);
+            }, 7700);
 
             setTimeout(function() {
                 console.log("Bfrontview2");
                 camera.position.set(129, 180, 289);
                 controls.update();
-            }, 20700);
+            }, 11500);
 
             setTimeout(function() {
                 console.log("Bfrontview2");
-                camera.position.set(300, 300, 300);
+                camera.position.set(549, 500, 500);
                 controls.update();
-            }, 22330);
+            }, 13700);
 
             setTimeout(function() {
                 console.log("Bfrontview2");
                 camera.position.set(129, 180, 289);
                 controls.update();
-            }, 23900);
+            }, 17000);
 
             setTimeout(function() {
                 console.log("Bfrontview2");
                 camera.position.set(300, 300, 300);
                 controls.update();
-            }, 25380);
+            }, 21100);
 
             setTimeout(function() {
                 console.log("Bfrontview2");
@@ -533,25 +533,35 @@ function setupWorld() {
 
     function textLyrics() {
         setTimeout(function() {
-            document.getElementById("lyrics").innerHTML="SINTETIZADOR" + '<br>' + "FELIZ X4";
-        }, 700);
+            document.getElementById("lyrics").innerHTML="Me encanta compartir este sintetizador feliz, " + '<br>' + "que mis amigas de youtube me inspiraron a crear";
+        }, 1750);
     
     
         setTimeout(function() {
-            document.getElementById("lyrics").innerHTML="BABY YA ES URGENTE" + '<br>' + "CURAR ESE DOLOR X2";
-        }, 10000);
+            document.getElementById("lyrics").innerHTML="SINTETIZADOR" + '<br>' +  "FELIZ X3";
+        }, 16960);
 
         setTimeout(function() {
-            document.getElementById("lyrics").innerHTML="SINTETIZADOR" + '<br>' + "FELIZ X4";
-        }, 20700);
+            document.getElementById("lyrics").innerHTML="El día que escuche sus sintetizadores ya," + '<br>' + "me hipnorizaron a cantar, ¡no lo pude resistir!";
+        }, 24600);
 
         setTimeout(function() {
-            document.getElementById("lyrics").innerHTML="BABY YA ES URGENTE" + '<br>' + "CURAR ESE DOLOR X2";
-        }, 32110);
+            document.getElementById("lyrics").innerHTML="Ahora quiero compartir ese mismo feelin hacia ti," + '<br>' + "Amiga ponte a bailar, ¡no lo dejes de sentir!";
+        }, 32135);
 
         setTimeout(function() {
-            document.getElementById("lyrics").innerHTML="SINTETIZADOR" + '<br>' + "FELIZ X4";
-        }, 47200);
+            document.getElementById("lyrics").innerHTML="El día que entendí que el mundo no era para mí" + '<br>' + "Solo quize escuchar un sintetizador feliz.";
+        }, 39600);
+
+        setTimeout(function() {
+            document.getElementById("lyrics").innerHTML="EN ESPAÑOL LATINO"  + '<br>' + " YEAAAAAA";
+        }, 47050);
+
+
+        setTimeout(function() {
+            document.getElementById("lyrics").innerHTML="Solo quize escuchar un"  + '<br>' +  "SINTETIZADOR FELIZ";
+        }, 50740);
+
 
     
 
