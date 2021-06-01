@@ -11,16 +11,21 @@ var dir = new THREE.Vector3();
 var speed = 40;
 var rmapped = 0;
 var frontLight = new THREE.DirectionalLight( 0xFFFFFF, 3 ); // soft white light
-var sphereTexture = new THREE.ImageUtils.loadTexture( 'img/space/music.png' );
+var sphereTexture = new THREE.ImageUtils.loadTexture( 'img/happySynthAssets/bg60.gif' );
 sphereTexture.wrapS = sphereTexture.wrapT = THREE.RepeatWrapping; 
-sphereTexture.repeat.set( 1, 1 );
+sphereTexture.repeat.set( 8, 8 );
 var sphereMaterial = new THREE.MeshBasicMaterial( { map: sphereTexture, side: THREE.DoubleSide, transparent:true } );
 var SphereGeometry = new THREE.SphereGeometry(2500, 2500, 1);
 var sphere = new THREE.Mesh(SphereGeometry, sphereMaterial);
 
+var loadingScreen = document.getElementById( 'loading-screen' );
 
-
-
+var musicTexture = new THREE.ImageUtils.loadTexture( 'img/happySynthAssets/pinkmusicbar.gif' );
+musicTexture.wrapS = musicTexture.wrapT = THREE.RepeatWrapping; 
+musicTexture.repeat.set( 6, 6 );
+var musicMaterial = new THREE.MeshBasicMaterial( { map: musicTexture, side: THREE.DoubleSide, transparent:true } );
+var musicGeometry = new THREE.SphereGeometry(1500, 1500, 1);
+var music = new THREE.Mesh(musicGeometry, musicMaterial);
 
 
 setUp();
@@ -96,6 +101,25 @@ function setupWorld() {
    sphere.receiveShadow = true;
    scene.add(sphere);
 
+   music.position.y = 0;
+   music.position.z = -220;
+   music.rotation.y = Math.PI / 2;
+   music.receiveShadow = true;
+   scene.add(music);
+
+   var assetsTexture = new THREE.ImageUtils.loadTexture( 'img/happySynthAssets/disco.gif' );
+   assetsTexture.wrapS = assetsTexture.wrapT = THREE.RepeatWrapping; 
+   assetsTexture.repeat.set( 1, 1 );
+    var assetsMaterial = new THREE.MeshBasicMaterial( { map: assetsTexture, side: THREE.DoubleSide, transparent:true } );
+    var assetsGeometry = new THREE.SphereGeometry(20, 20);
+    var assets = new THREE.Mesh(assetsGeometry, assetsMaterial);
+
+    assets.position.y = 200;
+    assets.position.z = 60;
+    assets.rotation.y = Math.PI / 2;
+    assets.receiveShadow = true;
+    scene.add(assets);
+
     const manager = new THREE.LoadingManager();
     manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
         console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
@@ -104,12 +128,13 @@ function setupWorld() {
     };
 
     manager.onLoad = function ( ) {
+        loadingScreen.remove();
         console.log( 'Loading complete!');
-      
     };
 
 
     manager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
+        loadingScreen.innerHTML = Math.floor((itemsLoaded / itemsTotal * 100)) + "%loaded";
         console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
     };
 
@@ -239,6 +264,77 @@ function setupWorld() {
     }
     );
 
+    for( var i = 0; i < 36; i++ ){
+        loadImgsTwo(manager); 
+    }
+
+
+    function loadImgsTwo(){
+        geometries = new THREE.PlaneGeometry(10, 10, 10);
+        textures = THREE.ImageUtils.loadTexture('img/musicnotes/music' + i + '.gif' );
+        textures.wrapS = THREE.RepeatWrapping;
+        textures.wrapT= THREE.RepeatWrapping;
+        textures.repeat.set( 1, 1 );
+        materials = new THREE.MeshLambertMaterial({map:textures, side: THREE.DoubleSide, transparent:true, depthWrite: false, depthTest: false});
+        var planes = new THREE.Mesh(geometries, materials);
+        planes.material.side = THREE.DoubleSide;
+        planes.position.x = Math.random() * -60;
+        planes.position.y = Math.random() * 100;
+        planes.position.z = Math.random() * 60;
+        //cloud.add(planes);
+        scene.add( planes );
+
+    }
+
+    for( var i = 0; i < 36; i++ ){
+        loadImgsM(manager); 
+    }
+
+
+    function loadImgsM(){
+        geometries = new THREE.PlaneGeometry(10, 10, 10);
+        textures = THREE.ImageUtils.loadTexture('img/musicnotes/music' + i + '.gif' );
+        textures.wrapS = THREE.RepeatWrapping;
+        textures.wrapT= THREE.RepeatWrapping;
+        textures.repeat.set( 1, 1 );
+        materials = new THREE.MeshLambertMaterial({map:textures, side: THREE.DoubleSide, transparent:true, depthWrite: false, depthTest: false});
+        var planes = new THREE.Mesh(geometries, materials);
+        planes.material.side = THREE.DoubleSide;
+        planes.position.x = Math.random() * -360;
+        planes.position.y = Math.random() * 200;
+        planes.position.z = Math.random() * -560;
+        //cloud.add(planes);
+        scene.add( planes );
+
+    }
+
+    for( var i = 0; i < 36; i++ ){
+        loadImgsM(manager); 
+    }
+
+
+    function loadImgsM(){
+        geometries = new THREE.PlaneGeometry(10, 10, 10);
+        textures = THREE.ImageUtils.loadTexture('img/musicnotes/music' + i + '.gif' );
+        textures.wrapS = THREE.RepeatWrapping;
+        textures.wrapT= THREE.RepeatWrapping;
+        textures.repeat.set( 1, 1 );
+        materials = new THREE.MeshLambertMaterial({map:textures, side: THREE.DoubleSide, transparent:true, depthWrite: false, depthTest: false});
+        var planes = new THREE.Mesh(geometries, materials);
+        planes.material.side = THREE.DoubleSide;
+        planes.position.x = Math.random() * -360;
+        planes.position.y = Math.random() * 200;
+        planes.position.z = Math.random() * 560;
+        //cloud.add(planes);
+        scene.add( planes );
+
+    }
+
+
+
+ 
+
+
 }
 
 
@@ -341,7 +437,7 @@ function setupWorld() {
     function animate() {
 
         sphere.rotation.z += 0.005;
-        sphere.rotation.y += 0.005;
+        music.rotation.y += 0.005;
 
 
         requestAnimationFrame( animate );
@@ -403,7 +499,7 @@ function setupWorld() {
         pointlight.position.z=100;
         scene.add( pointlight ); 
 
-        var pointlight = new THREE.HemisphereLight( 0XFFFFFF , 1 ); // soft white light
+        var pointlight = new THREE.SpotLight( 0XFFFFFF , 3 ); // soft white light
         pointlight.position.y=700;
         pointlight.position.z=0;
         scene.add( pointlight ); 
@@ -533,33 +629,33 @@ function setupWorld() {
 
     function textLyrics() {
         setTimeout(function() {
-            document.getElementById("lyrics").innerHTML="Me encanta compartir este sintetizador feliz, " + '<br>' + "que mis amigas de youtube me inspiraron a crear";
+            document.getElementById("lyricsSynth").innerHTML="Me encanta compartir este sintetizador feliz, " + '<br>' + "que mis amigas de youtube me inspiraron a crear";
         }, 1750);
     
     
         setTimeout(function() {
-            document.getElementById("lyrics").innerHTML="SINTETIZADOR" + '<br>' +  "FELIZ X3";
+            document.getElementById("lyricsSynth").innerHTML="SINTETIZADOR" + '<br>' +  "FELIZ X3";
         }, 16960);
 
         setTimeout(function() {
-            document.getElementById("lyrics").innerHTML="El día que escuche sus sintetizadores ya," + '<br>' + "me hipnorizaron a cantar, ¡no lo pude resistir!";
+            document.getElementById("lyricsSynth").innerHTML="El día que escuche sus sintetizadores ya," + '<br>' + "me hipnorizaron a cantar, ¡no lo pude resistir!";
         }, 24600);
 
         setTimeout(function() {
-            document.getElementById("lyrics").innerHTML="Ahora quiero compartir ese mismo feelin hacia ti," + '<br>' + "Amiga ponte a bailar, ¡no lo dejes de sentir!";
+            document.getElementById("lyricsSynth").innerHTML="Ahora quiero compartir ese mismo feelin hacia ti," + '<br>' + "Amiga ponte a bailar, ¡no lo dejes de sentir!";
         }, 32135);
 
         setTimeout(function() {
-            document.getElementById("lyrics").innerHTML="El día que entendí que el mundo no era para mí" + '<br>' + "Solo quize escuchar un sintetizador feliz.";
+            document.getElementById("lyricsSynth").innerHTML="El día que entendí que el mundo no era para mí" + '<br>' + "Solo quize escuchar un sintetizador feliz.";
         }, 39600);
 
         setTimeout(function() {
-            document.getElementById("lyrics").innerHTML="EN ESPAÑOL LATINO"  + '<br>' + " YEAAAAAA";
+            document.getElementById("lyricsSynth").innerHTML="EN ESPAÑOL LATINO"  + '<br>' + " YEAAAAAA";
         }, 47050);
 
 
         setTimeout(function() {
-            document.getElementById("lyrics").innerHTML="Solo quize escuchar un"  + '<br>' +  "SINTETIZADOR FELIZ";
+            document.getElementById("lyricsSynth").innerHTML="Solo quize escuchar un"  + '<br>' +  "SINTETIZADOR FELIZ";
         }, 50740);
 
 

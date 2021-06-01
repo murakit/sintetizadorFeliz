@@ -23,6 +23,7 @@
 
     <img id="but1"   src="img/play.png">
 
+    <div id="loading-screen"></div>
 
     <div id="interface">    </div>
 
@@ -45,7 +46,7 @@
         <img id="top" src="img/space/top.jpg">
 
 
-        <div id="lyrics"></div>
+        <div id="lyricsSynth"></div>
         <div id="secondinterface">
         <img id="Scndframe" src="img/notasmusicais2.gif">
         <img id="ScndframeTwo" src="img/logoMUSICAciber1.gif">
@@ -96,9 +97,17 @@
 
       let audioThree = document.getElementById("myAudio");
       let volume = document.querySelector("#volume-control");
+      volume.addEventListener("touchstart", handle, false);
       volume.addEventListener("change", function(e) {
           audioThree.volume = e.currentTarget.value / 30;
       })
+
+      function handle () {
+        audioThree.volume = e.currentTarget.value / 30;
+      }
+
+
+
     </script>
 
   </body>

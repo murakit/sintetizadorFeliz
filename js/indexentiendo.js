@@ -18,6 +18,7 @@ var backMaterial = new THREE.MeshBasicMaterial( { map: backTexture, side: THREE.
 var backGeometry = new THREE.CubeGeometry(2500, 2500, 2500, 1);
 var back = new THREE.Mesh(backGeometry, backMaterial);
 
+var loadingScreen = document.getElementById( 'loading-screen' );
 
 
 setUp();
@@ -149,12 +150,14 @@ function setupWorld() {
     };
 
     manager.onLoad = function ( ) {
+        loadingScreen.remove();
         console.log( 'Loading complete!');
       
     };
 
 
     manager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
+        loadingScreen.innerHTML = (itemsLoaded / itemsTotal * 100) + "%loaded";
         console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
     };
 
@@ -200,6 +203,76 @@ function setupWorld() {
             console.log( 'An error happened' );
         }
     );
+
+    for( var i = 0; i < 200; i++ ){
+        loadImgsTwo(manager); 
+    }
+
+
+    function loadImgsTwo(){
+        geometries = new THREE.PlaneGeometry(70, 70, 70);
+        textures = THREE.ImageUtils.loadTexture('img/stars/star.png' );
+        textures.wrapS = THREE.RepeatWrapping;
+        textures.wrapT= THREE.RepeatWrapping;
+        textures.repeat.set( 1, 1 );
+        materials = new THREE.MeshLambertMaterial({map:textures, side: THREE.DoubleSide, transparent:true, depthWrite: false, depthTest: false});
+        var planes = new THREE.Mesh(geometries, materials);
+        planes.material.side = THREE.DoubleSide;
+        planes.position.x = Math.random() * 900;
+        planes.position.y = Math.random() * 800;
+        planes.position.z = Math.random() * 900;
+        //cloud.add(planes);
+        scene.add( planes );
+
+    }
+
+
+    for( var i = 0; i < 200; i++ ){
+        loadImgsThree(manager); 
+    }
+
+
+    function loadImgsThree(){
+        geometries = new THREE.PlaneGeometry(70, 70, 70);
+        textures = THREE.ImageUtils.loadTexture('img/stars/star.png' );
+        textures.wrapS = THREE.RepeatWrapping;
+        textures.wrapT= THREE.RepeatWrapping;
+        textures.repeat.set( 1, 1 );
+        materials = new THREE.MeshLambertMaterial({map:textures, side: THREE.DoubleSide, transparent:true, depthWrite: false, depthTest: false});
+        var planes = new THREE.Mesh(geometries, materials);
+        planes.material.side = THREE.DoubleSide;
+        planes.position.x = Math.random() * -900;
+        planes.position.y = Math.random() * 800;
+        planes.position.z = Math.random() * -900;
+        //cloud.add(planes);
+        scene.add( planes );
+
+    }
+
+
+    for( var i = 0; i < 200; i++ ){
+        loadImgsThree(manager); 
+    }
+
+
+    function loadImgsThree(){
+        geometries = new THREE.PlaneGeometry(70, 70, 70);
+        textures = THREE.ImageUtils.loadTexture('img/stars/star.png' );
+        textures.wrapS = THREE.RepeatWrapping;
+        textures.wrapT= THREE.RepeatWrapping;
+        textures.repeat.set( 1, 1 );
+        materials = new THREE.MeshLambertMaterial({map:textures, side: THREE.DoubleSide, transparent:true, depthWrite: false, depthTest: false});
+        var planes = new THREE.Mesh(geometries, materials);
+        planes.material.side = THREE.DoubleSide;
+        planes.position.x = Math.random() * -900;
+        planes.position.y = Math.random() * 800;
+        planes.position.z = Math.random() * 900;
+        //cloud.add(planes);
+        scene.add( planes );
+
+    }
+
+    
 
 }
 

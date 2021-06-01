@@ -9,8 +9,20 @@ var dir = new THREE.Vector3();
 var speed = 40;
 var rmapped = 0;
 var frontLight = new THREE.DirectionalLight( 0xFFFFFF, 3 ); // soft white light
+var cloud = new THREE.Object3D();
+var loader = new THREE.TextureLoader();
 
+var materials = [];
+var textures = [];
+var geometries = [];
 
+var bkTexture = new THREE.ImageUtils.loadTexture( 'img/space/butons.jpg' );
+bkTexture.wrapS = bkTexture.wrapT = THREE.RepeatWrapping; 
+bkTexture.repeat.set( 1, 1 );
+var bkMaterial = new THREE.MeshBasicMaterial( { map: bkTexture, side: THREE.DoubleSide, transparent:true } );
+var bkGeometry = new THREE.CubeGeometry(2500, 2500, 2500, 1);
+var bk = new THREE.Mesh(bkGeometry, bkMaterial);
+var loadingScreen = document.getElementById( 'loading-screen' );
 
 
 
@@ -102,6 +114,19 @@ function setupWorld() {
     floor.receiveShadow = true;
     scene.add(floor);
 
+
+
+
+
+
+    bk.position.y = 0;
+    bk.position.z = -220;
+    bk.rotation.x = Math.PI / 2;
+    bk.receiveShadow = true;
+    scene.add(bk);
+
+
+
    /* var floorTexture = new THREE.ImageUtils.loadTexture( 'img/space/boton.png' );
     floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping; 
     //floorTexture.repeat.set( 6, 6 );
@@ -125,19 +150,6 @@ function setupWorld() {
     floor.rotation.y = Math.PI / 2;
     floor.receiveShadow = true;
     scene.add(floor);*/
-
-
-    var floorTexture = new THREE.ImageUtils.loadTexture( 'img/space/butons.jpg' );
-    floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping; 
-    floorTexture.repeat.set( 1, 1 );
-    var floorMaterial = new THREE.MeshBasicMaterial( { map: floorTexture, side: THREE.DoubleSide, transparent:true } );
-    var floorGeometry = new THREE.CubeGeometry(2500, 2500, 2500, 1);
-    var floor = new THREE.Mesh(floorGeometry, floorMaterial);
-    floor.position.y = 0;
-    floor.position.z = -220;
-    floor.rotation.x = Math.PI / 2;
-    floor.receiveShadow = true;
-    scene.add(floor);
 
     
 
@@ -178,12 +190,14 @@ function setupWorld() {
 
     manager.onLoad = function ( ) {
         console.log( 'Loading complete!');
-      
+        loadingScreen.remove();
+
     };
 
 
     manager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
-        console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+        loadingScreen.innerHTML = (itemsLoaded / itemsTotal * 100) + "%loaded";
+        console.log( 'Loading: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
     };
 
     manager.onError = function ( url ) {
@@ -228,6 +242,51 @@ function setupWorld() {
             console.log( 'An error happened' );
         }
     );
+
+
+        for( var i = 0; i < 12; i++ ){
+            loadImgs(manager); 
+        }
+
+
+    function loadImgs(){
+        geometries = new THREE.SphereGeometry(40, 40, 40);
+        textures = THREE.ImageUtils.loadTexture('img/imgsloop/logo' + i + '.png');
+        textures.wrapS = THREE.RepeatWrapping;
+        textures.wrapT= THREE.RepeatWrapping;
+        textures.repeat.set( 2, 1 );
+        materials = new THREE.MeshLambertMaterial({map:textures});
+        var planes = new THREE.Mesh(geometries, materials);
+        planes.material.side = THREE.DoubleSide;
+        planes.position.x = Math.random() * -300;
+        planes.position.y = Math.random() * 800;
+        planes.position.z = Math.random() * 500;
+        //cloud.add(planes);
+        scene.add( planes );
+
+    }
+
+    for( var i = 0; i < 12; i++ ){
+        loadImgsTwo(manager); 
+    }
+
+
+function loadImgsTwo(){
+    geometries = new THREE.SphereGeometry(40, 40, 40);
+    textures = THREE.ImageUtils.loadTexture('img/imgsloop/logo' + i + '.png');
+    textures.wrapS = THREE.RepeatWrapping;
+    textures.wrapT= THREE.RepeatWrapping;
+    textures.repeat.set( 2, 1 );
+    materials = new THREE.MeshLambertMaterial({map:textures});
+    var planes = new THREE.Mesh(geometries, materials);
+    planes.material.side = THREE.DoubleSide;
+    planes.position.x = Math.random() * 900;
+    planes.position.y = Math.random() * 800;
+    planes.position.z = Math.random() * 900;
+    //cloud.add(planes);
+    scene.add( planes );
+
+}
 
 }
 
@@ -329,7 +388,11 @@ function setupWorld() {
 
 
     function animate() {
+
         requestAnimationFrame( animate );
+        bk.rotation.y += 0.005;
+        bk.rotation.z += 0.005;
+
         //var delta = clock.getDelta();
         var delta = clock.getDelta();
        /* var h = rmapped * 0.0200 % 1;

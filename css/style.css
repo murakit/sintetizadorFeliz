@@ -18,6 +18,17 @@ body {
     position: fixed;
 }
 
+#loading-screen {
+    position:fixed;
+    font-family: cursive;
+    font-size: 30px;
+    z-index: 99999999;
+    color:white;
+    margin-top: 190px;
+    margin-left: 120px;
+    
+}
+
 #secondinterface {
     margin-top: 385px;
     margin-left: 10px;
@@ -89,6 +100,17 @@ body {
     font-size: 30px;
     font-family: 'Tangerine', cursive;
     text-shadow: 4px 0 3px #ffffff, 0 0 5px #e426bb; 
+}
+
+#lyricsSynth {
+    position: fixed;
+    z-index: 99;
+    margin-top: 340px;
+    margin-left: 43px;
+    color:white;
+    font-size: 24px;
+    font-family: 'Tangerine', cursive;
+    text-shadow: 4px 0 3px #e426bb, 0 0 5px white;
 }
 
 #volume-control {
