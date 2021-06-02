@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" type="image/png" href="img/assets/1.jpg" />
+    <title>*ú𝓁𝓉𝒾𝓂𝒶 𝑀𝓊𝓇𝒶𝓀𝒾𝓉𝒶* 𝒮𝑒𝑔𝓊𝓃𝒹𝑜 𝒮𝓊𝒾𝒸𝒾𝒹𝒾𝑜</title>
+    <meta name="description" content="">
+    <meta name="author" content="MURAC">
+    <link rel="stylesheet" href="css/lib/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!--<div id="main-container"></div>-->
+
+    <audio id="myAudio">
+      <source src="audio/tienemassenti23.mp3" type="audio/mp3">
+    </audio>
+
+    <img id="but1"   src="img/play.png">
+
+    <div id="loading-screen"></div>
+    <div id="interface">    </div>
+
+       <!--- <img id="frame" src="img/notasmusicais2.gif">
+        <img id="frame_two" src="img/music_blk.gif">
+        <img id="frame_three" src="img/notasmusicais2.gif">-->
+
+      <a href="yoentiendo.html"> <img id="frame_four" src="img/kissmusic.gif"></a>
+        <img id="bocina" src="img/gifsRef/dj.gif">
+        <img id="bocina2" src="img/gifsRef/dj.gif">
+        <img id="luz" src="img/stagelights_turning_pink_md_clr.gif">
+        <img id="luz2" src="img/stagelights_turning_pink_md_clr.gif">
+        <img id="luz3" src="img/stagelights_turning_pink_md_clr.gif">
+
+        <img id="speaker" src="img/speaker2.png">
+
+
+        <img id="art" src="img/space/backy.jpg">
+        <img id="RghtArt" src="img/space/rght.jpg">
+        <img id="top" src="img/space/top.jpg">
+
+
+        <div id="lyrics"></div>
+        <div id="secondinterface">
+        <img id="Scndframe" src="img/notasmusicais2.gif">
+        <img id="ScndframeTwo" src="img/logoMUSICAciber1.gif">
+        <img id="ScndframeThree" src="img/notasmusicais2.gif">
+
+        <input  id="volume-control"  type="range" min="0" max="30" value="23" step="5" >
+
+
+    </div>
+
+    <div id="buttons">
+      <div id="1">
+      <p>
+      <a href="index.html">1. SINTETIZADOR FELIZ (REMIX)<br> en la Plaza de la Tecnología</a><br><br>
+      <a href="yoentiendo.html">2. Raver YO ENTIENDO...</a><br><br>
+      <a href="happySynthInspo.html">3.ハッピーシンセサイザ-EasyPop(BETTI) Happy Synthesizer ~ fandub español<br> latino Murakyta on Vocals </a></p><br>
+      <a href="cdtuamor.html">3.ハッピーシンセサイザ-EasyPop(BETTI) Happy Synthesizer ~ fandub español<br> latino Murakyta on Vocals </a></p><br>
+
+    </div>
+    </div>
+
+    <div id="txt">
+     <h2> <a href="https://threejs.org/">threelibrary.js </a> <a href="https://processing.org/">Processing </a><a href="https://www.blender.org/">Blender</a> <a href="">Archive 3D</a> <a href="https://processing.org/">Processing </a><a href="https://www.presonus.com/products/studio-one/">Presonus</a></h2>
+    </div>
+
+
+    <script src="js/lib/jquery-3.2.1.js"></script>
+    <!--<script type="module" src="js/lib/three.js"></script>
+   <script src="js/stats.min.js"></script>
+   <script src="js/threex.videotexture.js"></script>-->
+   <script src="js/three.min.js"></script>
+    <script src="js/inflate.min.js"></script>
+    <script src="js/lib/three/FBXLoader.js"></script>
+    <script src="js/lib/three/OBJLoader.js"></script>
+    <script src="js/lib/MTLLoader.js"></script>
+    <script src="js/lib/three/GLTFLoader.js"></script>
+    <script src="js/lib/three/StereoEffect.js"></script>
+    <script src="js/lib/three/DeviceOrientationControls.js"></script>
+    <script src="js/lib/OrbitControls.js"></script>
+    <script src="js/lib/three/TrackballControls.js"></script>
+    <script src="js/lib/three/Tween.js"></script>
+
+
+    <script src="js/indexSecond.js"></script>
+
+    <script>
+      function onPlay() {
+        var audio = document.getElementById("myAudio");
+        audio.loop=true;
+        audio.play();
+      }
+
+
+
+      let audioThree = document.getElementById("myAudio");
+      let volume = document.querySelector("#volume-control");
+      volume.addEventListener("change", function(e) {
+          audioThree.volume = e.currentTarget.value / 10;
+      })
+
+
+    </script>
+
+  </body>
+  </html>

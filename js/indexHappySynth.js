@@ -12,7 +12,7 @@ var speed = 40;
 var rmapped = 0;
 var frontLight = new THREE.DirectionalLight( 0xFFFFFF, 3 ); // soft white light
 var sphereTexture = new THREE.ImageUtils.loadTexture( 'img/happySynthAssets/bg60.gif' );
-sphereTexture.wrapS = sphereTexture.wrapT = THREE.RepeatWrapping; 
+sphereTexture.wrapS = sphereTexture.wrapT = THREE.RepeatWrapping;
 sphereTexture.repeat.set( 8, 8 );
 var sphereMaterial = new THREE.MeshBasicMaterial( { map: sphereTexture, side: THREE.DoubleSide, transparent:true } );
 var SphereGeometry = new THREE.SphereGeometry(2500, 2500, 1);
@@ -21,7 +21,7 @@ var sphere = new THREE.Mesh(SphereGeometry, sphereMaterial);
 var loadingScreen = document.getElementById( 'loading-screen' );
 
 var musicTexture = new THREE.ImageUtils.loadTexture( 'img/happySynthAssets/pinkmusicbar.gif' );
-musicTexture.wrapS = musicTexture.wrapT = THREE.RepeatWrapping; 
+musicTexture.wrapS = musicTexture.wrapT = THREE.RepeatWrapping;
 musicTexture.repeat.set( 6, 6 );
 var musicMaterial = new THREE.MeshBasicMaterial( { map: musicTexture, side: THREE.DoubleSide, transparent:true } );
 var musicGeometry = new THREE.SphereGeometry(1500, 1500, 1);
@@ -32,7 +32,7 @@ setUp();
 
 function setUp() {
     setupWorld();
-    animate(); 
+    animate();
     //loadCubeMap ('js/3dcubemap/eight/dark-s_' , '.png');
     lights();
    // textLyrics();
@@ -61,7 +61,7 @@ function setupWorld() {
 
 
     controls = new THREE.OrbitControls(camera, renderer.domElement);
-    //controls.autoRotate = true;
+    controls.autoRotate = true;
     //controls.maxZoom = 0.9;
 
     controls.rotateSpeed = 0.2;
@@ -83,7 +83,7 @@ function setupWorld() {
 
 
     var floorTexture = new THREE.ImageUtils.loadTexture( 'img/notasmusicais2.gif' );
-    floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping; 
+    floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping;
     floorTexture.repeat.set( 6, 6 );
     var floorMaterial = new THREE.MeshBasicMaterial( { map: floorTexture, side: THREE.DoubleSide, transparent:true } );
     var floorGeometry = new THREE.PlaneGeometry(500, 500, 1, 1);
@@ -108,7 +108,7 @@ function setupWorld() {
    scene.add(music);
 
    var assetsTexture = new THREE.ImageUtils.loadTexture( 'img/happySynthAssets/disco.gif' );
-   assetsTexture.wrapS = assetsTexture.wrapT = THREE.RepeatWrapping; 
+   assetsTexture.wrapS = assetsTexture.wrapT = THREE.RepeatWrapping;
    assetsTexture.repeat.set( 1, 1 );
     var assetsMaterial = new THREE.MeshBasicMaterial( { map: assetsTexture, side: THREE.DoubleSide, transparent:true } );
     var assetsGeometry = new THREE.SphereGeometry(20, 20);
@@ -160,14 +160,14 @@ function setupWorld() {
             gltf.scene.traverse( function( object ) {
 
                 object.frustumCulled = false;
-            
+
             } );
-            
+
             mixer = new THREE.AnimationMixer(gltf.scene);
             var action = mixer.clipAction(gltf.animations[0]);
             action.play();
             scene.add( gltf  );
-           
+
            // scene.add( mesh );
             scene.add( gltf.scene );
 
@@ -202,14 +202,14 @@ function setupWorld() {
         gltf.scene.traverse( function( object ) {
 
             object.frustumCulled = false;
-        
+
         } );
-        
+
         mix = new THREE.AnimationMixer(gltf.scene);
         var actions = mix.clipAction(gltf.animations[0]);
         actions.play();
         scene.add( gltf  );
-       
+
        // scene.add( mesh );
         scene.add( gltf.scene );
 
@@ -242,14 +242,14 @@ function setupWorld() {
         gltf.scene.traverse( function( object ) {
 
             object.frustumCulled = false;
-        
+
         } );
-        
+
         mixdos = new THREE.AnimationMixer(gltf.scene);
         var actions = mixdos.clipAction(gltf.animations[0]);
         actions.play();
         scene.add( gltf  );
-    
+
     // scene.add( mesh );
         scene.add( gltf.scene );
 
@@ -265,7 +265,7 @@ function setupWorld() {
     );
 
     for( var i = 0; i < 36; i++ ){
-        loadImgsTwo(manager); 
+        loadImgsTwo(manager);
     }
 
 
@@ -287,7 +287,7 @@ function setupWorld() {
     }
 
     for( var i = 0; i < 36; i++ ){
-        loadImgsM(manager); 
+        loadImgsM(manager);
     }
 
 
@@ -301,19 +301,19 @@ function setupWorld() {
         var planes = new THREE.Mesh(geometries, materials);
         planes.material.side = THREE.DoubleSide;
         planes.position.x = Math.random() * -360;
-        planes.position.y = Math.random() * 200;
-        planes.position.z = Math.random() * -560;
+        planes.position.y = Math.random() * 600;
+        planes.position.z = Math.random() * -2060;
         //cloud.add(planes);
         scene.add( planes );
 
     }
 
     for( var i = 0; i < 36; i++ ){
-        loadImgsM(manager); 
+        loadImgsMThree(manager);
     }
 
 
-    function loadImgsM(){
+    function loadImgsMThree(){
         geometries = new THREE.PlaneGeometry(10, 10, 10);
         textures = THREE.ImageUtils.loadTexture('img/musicnotes/music' + i + '.gif' );
         textures.wrapS = THREE.RepeatWrapping;
@@ -322,9 +322,9 @@ function setupWorld() {
         materials = new THREE.MeshLambertMaterial({map:textures, side: THREE.DoubleSide, transparent:true, depthWrite: false, depthTest: false});
         var planes = new THREE.Mesh(geometries, materials);
         planes.material.side = THREE.DoubleSide;
-        planes.position.x = Math.random() * -360;
-        planes.position.y = Math.random() * 200;
-        planes.position.z = Math.random() * 560;
+        planes.position.x = Math.random() * -160;
+        planes.position.y = Math.random() * 100;
+        planes.position.z = Math.random() * 160;
         //cloud.add(planes);
         scene.add( planes );
 
@@ -332,7 +332,51 @@ function setupWorld() {
 
 
 
- 
+
+        for( var i = 0; i < 36; i++ ){
+            loadImgsMF(manager);
+        }
+
+
+        function loadImgsMF(){
+            geometries = new THREE.PlaneGeometry(10, 10, 10);
+            textures = THREE.ImageUtils.loadTexture('img/musicnotes/music' + i + '.gif' );
+            textures.wrapS = THREE.RepeatWrapping;
+            textures.wrapT= THREE.RepeatWrapping;
+            textures.repeat.set( 1, 1 );
+            materials = new THREE.MeshLambertMaterial({map:textures, side: THREE.DoubleSide, transparent:true, depthWrite: false, depthTest: false});
+            var planes = new THREE.Mesh(geometries, materials);
+            planes.material.side = THREE.DoubleSide;
+            planes.position.x = Math.random() * -560;
+            planes.position.y = Math.random() * 500;
+            planes.position.z = Math.random() * 160;
+            //cloud.add(planes);
+            scene.add( planes );
+
+        }
+
+
+        for( var i = 0; i < 36; i++ ){
+            loadImgsM(manager);
+        }
+
+
+        function loadImgsM(){
+            geometries = new THREE.PlaneGeometry(10, 10, 10);
+            textures = THREE.ImageUtils.loadTexture('img/musicnotes/music' + i + '.gif' );
+            textures.wrapS = THREE.RepeatWrapping;
+            textures.wrapT= THREE.RepeatWrapping;
+            textures.repeat.set( 1, 1 );
+            materials = new THREE.MeshLambertMaterial({map:textures, side: THREE.DoubleSide, transparent:true, depthWrite: false, depthTest: false});
+            var planes = new THREE.Mesh(geometries, materials);
+            planes.material.side = THREE.DoubleSide;
+            planes.position.x = Math.random() * -560;
+            planes.position.y = Math.random() * 500;
+            planes.position.z = Math.random() * 160;
+            //cloud.add(planes);
+            scene.add( planes );
+
+        }
 
 
 }
@@ -403,7 +447,7 @@ function setupWorld() {
 
     function handleEnd(evt) {
         evt.preventDefault();
-        
+
     }
 
     function handleCancel(evt) {
@@ -421,10 +465,10 @@ function setupWorld() {
         textLyrics(x);
     }*/
 
-    
-  /*  
+
+  /*
     random camera changes
-  
+
   setInterval(function () {
         var rand =  Math.random()*2 - 1;
         camera.position.set(rand * camera.position.x, rand * camera.position.z, rand * camera.position.y);
@@ -456,7 +500,7 @@ function setupWorld() {
         if (mixdos){
             mixdos.update(delta);
         }
-        
+
         if (mixer) {
             mixer.update(delta);
         }
@@ -470,9 +514,8 @@ function setupWorld() {
        // rmapped ++;
         //mixer.update(this.clock.getDelta());
         //console.log(delta);
-        
+
         controls.update();
-        console.log(camera.position);
 
     }
 
@@ -486,23 +529,23 @@ function setupWorld() {
         var pointlight = new THREE.HemisphereLight( 0xFFFFFF, 1 ); // soft white light
         pointlight.position.y=500;
         pointlight.position.x=600;
-        scene.add( pointlight ); 
+        scene.add( pointlight );
 
         var pointlight = new THREE.HemisphereLight( 0xFFFFFF, 1 ); // soft white light
         pointlight.position.y=800;
         pointlight.position.z=1900;
-        scene.add( pointlight ); 
+        scene.add( pointlight );
 
 
         var pointlight = new THREE.PointLight( 0XFFFFFF , 1 ); // soft white light
         pointlight.position.y=600;
         pointlight.position.z=100;
-        scene.add( pointlight ); 
+        scene.add( pointlight );
 
         var pointlight = new THREE.SpotLight( 0XFFFFFF , 3 ); // soft white light
         pointlight.position.y=700;
         pointlight.position.z=0;
-        scene.add( pointlight ); 
+        scene.add( pointlight );
 
     }
 
@@ -511,14 +554,21 @@ function setupWorld() {
         textLyrics(x);
     }*/
 
-    
+
 
 
 
 
 
     function cameraChanges() {
-            setTimeout(function() {
+
+            setInterval(function() {
+
+                controls.update();
+                camera.position.set(Math.random() * 20, Math.random() * 400, Math.random() * 400);
+            }, 1800);
+
+        /*    setTimeout(function() {
                 console.log("Afrontview1");
                 camera.position.set(-100, 80, 130);
                 controls.update();
@@ -529,8 +579,8 @@ function setupWorld() {
                 camera.position.set(-75, 68, 190);
                 controls.update();
             }, 1800);
-        
-        
+
+
             setTimeout(function() {
                 console.log("Bfrontview2");
                 camera.position.set(-33, 129, 172);
@@ -602,8 +652,8 @@ function setupWorld() {
                 camera.position.set(30, 20, -10);
                 controls.update();
             }, 488200);
-        
-        
+
+
             setTimeout(function() {
                 console.log("Bfrontview2");
                 camera.position.set(0, 0, -0);
@@ -621,18 +671,18 @@ function setupWorld() {
                 camera.position.set(500, 500, 500);
                 controls.update();
             }, 54750);
-
+*/
 
     }
 
-    
+
 
     function textLyrics() {
         setTimeout(function() {
             document.getElementById("lyricsSynth").innerHTML="Me encanta compartir este sintetizador feliz, " + '<br>' + "que mis amigas de youtube me inspiraron a crear";
         }, 1750);
-    
-    
+
+
         setTimeout(function() {
             document.getElementById("lyricsSynth").innerHTML="SINTETIZADOR" + '<br>' +  "FELIZ X3";
         }, 16960);
@@ -659,7 +709,7 @@ function setupWorld() {
         }, 50740);
 
 
-    
+
 
     }
 
