@@ -122,6 +122,7 @@ function setupWorld() {
 
     const manager = new THREE.LoadingManager();
     manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
+        loadingScreen.innerHTML = ('Cargando:' + Math.floor(url) + '.\nLoaded ' + itemsLoaded  + itemsTotal );
         console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
        /* var mp3 = document.getElementById("myAudio");
         mp3.play();*/
@@ -379,6 +380,13 @@ function setupWorld() {
         }
 
 
+        setInterval(function() {
+
+            controls.update();
+            camera.position.set(Math.random() * 20, Math.random() * 400, Math.random() * 400);
+        }, 1800);
+
+
 }
 
 
@@ -398,7 +406,6 @@ function setupWorld() {
         if (!mp3.paused || myAudio.currentTime) {
             console.log("playiiii");
             textLyrics();
-            cameraChanges();
         } else {
             //Not playing...maybe paused, stopped or never played.
         }
@@ -430,7 +437,6 @@ function setupWorld() {
         if (!mp3.paused || myAudio.currentTime) {
             console.log("playiiii");
             textLyrics();
-            cameraChanges();
         } else {
             //Not playing...maybe paused, stopped or never played.
         }
@@ -440,7 +446,6 @@ function setupWorld() {
         play.remove();
         setInterval(function(){
             console.log("listopmiherma");
-            cameraChanges();
             textLyrics();
         }, 59000);
     }
@@ -556,124 +561,6 @@ function setupWorld() {
 
 
 
-
-
-
-
-    function cameraChanges() {
-
-            setInterval(function() {
-
-                controls.update();
-                camera.position.set(Math.random() * 20, Math.random() * 400, Math.random() * 400);
-            }, 1800);
-
-        /*    setTimeout(function() {
-                console.log("Afrontview1");
-                camera.position.set(-100, 80, 130);
-                controls.update();
-            }, 200);
-
-            setTimeout(function() {
-                console.log("Afrontview1");
-                camera.position.set(-75, 68, 190);
-                controls.update();
-            }, 1800);
-
-
-            setTimeout(function() {
-                console.log("Bfrontview2");
-                camera.position.set(-33, 129, 172);
-                controls.update();
-            }, 4800);
-
-            setTimeout(function() {
-                console.log("Bfrontview2");
-                camera.position.set(0.7, 240, 105);
-                controls.update();
-            }, 6200);
-
-            setTimeout(function() {
-                console.log("Bfrontview2");
-                camera.position.set(77.03, 281, 237);
-                controls.update();
-            }, 7700);
-
-            setTimeout(function() {
-                console.log("Bfrontview2");
-                camera.position.set(129, 180, 289);
-                controls.update();
-            }, 11500);
-
-            setTimeout(function() {
-                console.log("Bfrontview2");
-                camera.position.set(549, 500, 500);
-                controls.update();
-            }, 13700);
-
-            setTimeout(function() {
-                console.log("Bfrontview2");
-                camera.position.set(129, 180, 289);
-                controls.update();
-            }, 17000);
-
-            setTimeout(function() {
-                console.log("Bfrontview2");
-                camera.position.set(300, 300, 300);
-                controls.update();
-            }, 21100);
-
-            setTimeout(function() {
-                console.log("Bfrontview2");
-                camera.position.set(0.7, 240, 105);
-                controls.update();
-            }, 32100);
-
-            setTimeout(function() {
-                console.log("Bfrontview2");
-                camera.position.set(77.03, 281, 237);
-                controls.update();
-            }, 37440);
-
-            setTimeout(function() {
-                console.log("Bfrontview2");
-                camera.position.set(500, 500, 500);
-                controls.update();
-            }, 41610);
-
-            setTimeout(function() {
-                console.log("Afrontview1");
-                camera.position.set(30, 30, 10);
-                controls.update();
-            }, 47200);
-
-            setTimeout(function() {
-                console.log("Afrontview1");
-                camera.position.set(30, 20, -10);
-                controls.update();
-            }, 488200);
-
-
-            setTimeout(function() {
-                console.log("Bfrontview2");
-                camera.position.set(0, 0, -0);
-                controls.update();
-            }, 50400);
-
-            setTimeout(function() {
-                console.log("Bfrontview2");
-                camera.position.set(0.7, 240, 105);
-                controls.update();
-            }, 51880);
-
-            setTimeout(function() {
-                console.log("Bfrontview2");
-                camera.position.set(500, 500, 500);
-                controls.update();
-            }, 54750);
-*/
-
-    }
 
 
 
