@@ -18,9 +18,9 @@ var geometries = [];
 
 var bkTexture = new THREE.ImageUtils.loadTexture( 'img/space/butons.jpg' );
 bkTexture.wrapS = bkTexture.wrapT = THREE.RepeatWrapping; 
-bkTexture.repeat.set( 1, 1 );
+bkTexture.repeat.set( 2, 2 );
 var bkMaterial = new THREE.MeshBasicMaterial( { map: bkTexture, side: THREE.DoubleSide, transparent:true } );
-var bkGeometry = new THREE.CubeGeometry(2500, 2500, 2500, 1);
+var bkGeometry = new THREE.SphereGeometry(2500, 2500, 1);
 var bk = new THREE.Mesh(bkGeometry, bkMaterial);
 var loadingScreen = document.getElementById( 'loading-screen' );
 
@@ -78,9 +78,9 @@ function setupWorld() {
 
 
 
-    var floorTexture = new THREE.ImageUtils.loadTexture( 'img/piso.jpg' );
+    var floorTexture = new THREE.ImageUtils.loadTexture( 'img/space/wallcopy.png' );
     floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping; 
-    floorTexture.repeat.set( 6, 6 );
+    floorTexture.repeat.set( 2, 2 );
     var floorMaterial = new THREE.MeshBasicMaterial( { map: floorTexture, side: THREE.DoubleSide, transparent:true } );
     var floorGeometry = new THREE.PlaneGeometry(600, 600, 1, 1);
     var floor = new THREE.Mesh(floorGeometry, floorMaterial);
@@ -88,7 +88,7 @@ function setupWorld() {
     floor.position.z = -50;
     floor.rotation.x = Math.PI / 2;
     floor.receiveShadow = true;
-   scene.add(floor);
+    scene.add(floor);
 
     var floorTexture = new THREE.ImageUtils.loadTexture( 'img/speaker.png' );
     floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping; 
@@ -245,8 +245,10 @@ function setupWorld() {
     );
 
 
-        for( var i = 0; i < 12; i++ ){
+        for( var i = 0; i < 28; i++ ){
             loadImgs(manager); 
+            loadImgsTwo(manager); 
+            
         }
 
 
@@ -259,17 +261,14 @@ function setupWorld() {
         materials = new THREE.MeshLambertMaterial({map:textures});
         var planes = new THREE.Mesh(geometries, materials);
         planes.material.side = THREE.DoubleSide;
-        planes.position.x = Math.random() * -300;
-        planes.position.y = Math.random() * 800;
-        planes.position.z = Math.random() * 500;
+        planes.position.x = Math.random() * -500;
+        planes.position.y = Math.random() * 1000;
+        planes.position.z = Math.random() * 800;
         //cloud.add(planes);
         scene.add( planes );
 
     }
 
-    for( var i = 0; i < 12; i++ ){
-        loadImgsTwo(manager); 
-    }
 
 
 function loadImgsTwo(){
@@ -281,12 +280,11 @@ function loadImgsTwo(){
     materials = new THREE.MeshLambertMaterial({map:textures});
     var planes = new THREE.Mesh(geometries, materials);
     planes.material.side = THREE.DoubleSide;
-    planes.position.x = Math.random() * 900;
-    planes.position.y = Math.random() * 800;
-    planes.position.z = Math.random() * 900;
+    planes.position.x = Math.random() * 1200;
+    planes.position.y = Math.random() * 1000;
+    planes.position.z = Math.random() * 1200;
     //cloud.add(planes);
     scene.add( planes );
-
 }
 
 }
