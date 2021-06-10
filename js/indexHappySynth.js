@@ -111,14 +111,30 @@ function setupWorld() {
    assetsTexture.wrapS = assetsTexture.wrapT = THREE.RepeatWrapping;
    assetsTexture.repeat.set( 1, 1 );
     var assetsMaterial = new THREE.MeshBasicMaterial( { map: assetsTexture, side: THREE.DoubleSide, transparent:true } );
-    var assetsGeometry = new THREE.SphereGeometry(20, 20);
+    var assetsGeometry = new THREE.SphereGeometry(40, 40);
     var assets = new THREE.Mesh(assetsGeometry, assetsMaterial);
 
-    assets.position.y = 200;
+    assets.position.y = 300;
     assets.position.z = 60;
     assets.rotation.y = Math.PI / 2;
     assets.receiveShadow = true;
     scene.add(assets);
+
+
+
+   var checkbTexture = new THREE.ImageUtils.loadTexture( 'img/happySynthAssets/checkboard.jpg' );
+   checkbTexture.wrapS = checkbTexture.wrapT = THREE.RepeatWrapping;
+   checkbTexture.repeat.set( 1, 1 );
+    var checkbMaterial = new THREE.MeshBasicMaterial( { map: checkbTexture, side: THREE.DoubleSide, transparent:true } );
+    var checkbGeometry = new THREE.PlaneGeometry(70, 120);
+    var checkb = new THREE.Mesh(checkbGeometry, checkbMaterial);
+
+    checkb.position.y = 100;
+    checkb.position.z = -200;
+    checkb.rotation.z = Math.PI / 2;
+
+    checkb.receiveShadow = true;
+    scene.add(checkb);
 
     const manager = new THREE.LoadingManager();
     manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
@@ -127,22 +143,17 @@ function setupWorld() {
        /* var mp3 = document.getElementById("myAudio");
         mp3.play();*/
     };
-
     manager.onLoad = function ( ) {
         loadingScreen.remove();
         console.log( 'Loading complete!');
     };
-
-
     manager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
         loadingScreen.innerHTML = Math.floor((itemsLoaded / itemsTotal * 100)) + "%loaded";
         console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
     };
-
     manager.onError = function ( url ) {
         console.log( 'There was an error loading ' + url );
     };
-
 
     var loader = new THREE.GLTFLoader(manager);
         loader.load('models/happysynth/moni3.glb', function ( gltf ) {
@@ -157,13 +168,11 @@ function setupWorld() {
 
                 });
             });*/
-
             gltf.scene.traverse( function( object ) {
 
                 object.frustumCulled = false;
 
             } );
-
             mixer = new THREE.AnimationMixer(gltf.scene);
             var action = mixer.clipAction(gltf.animations[0]);
             action.play();
@@ -173,8 +182,6 @@ function setupWorld() {
             scene.add( gltf.scene );
 
         },
-
-
 
         function ( xhr ) {
             console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
@@ -264,6 +271,39 @@ function setupWorld() {
         console.log( 'An error happened' );
     }
     );
+
+
+    var murakit = new THREE.MTLLoader();
+    murakit.load("models/happysynth/moni3.mtl", function(materials) {
+      materials.preload();
+      console.log(materials);
+    
+      var murakit = new THREE.OBJLoader();
+      murakit.setMaterials(materials);
+    
+      murakit.load("models/happysynth/moni3.obj", function(mesh) {
+      scene.add(mesh);
+        
+      });
+    });
+
+
+    var murakit = new THREE.MTLLoader();
+    murakit.load("models/happysynth/moni4.mtl", function(materials) {
+      materials.preload();
+      console.log(materials);
+    
+      var murakit = new THREE.OBJLoader();
+      murakit.setMaterials(materials);
+    
+      murakit.load("models/happysynth/moni4.obj", function(mesh) {
+      scene.add(mesh);
+        
+      });
+    });
+
+
+
 
     for( var i = 0; i < 36; i++ ){
         loadImgsTwo(manager);
@@ -382,8 +422,9 @@ function setupWorld() {
 
         setInterval(function() {
 
+          
+            camera.position.set(Math.random() * 500, Math.random() * 400, Math.random() * 400);
             controls.update();
-            camera.position.set(Math.random() * 20, Math.random() * 400, Math.random() * 400);
         }, 1800);
 
 
@@ -419,7 +460,7 @@ function setupWorld() {
 
         setInterval(function(){
             console.log("listopmiherma");
-            cameraChanges();
+           // cameraChanges();
             textLyrics();
         }, 59000);
 
@@ -547,7 +588,7 @@ function setupWorld() {
         pointlight.position.z=100;
         scene.add( pointlight );
 
-        var pointlight = new THREE.SpotLight( 0XFFFFFF , 3 ); // soft white light
+        var pointlight = new THREE.SpotLight( 0XFFFFFF , 2 ); // soft white light
         pointlight.position.y=700;
         pointlight.position.z=0;
         scene.add( pointlight );

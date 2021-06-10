@@ -81,7 +81,7 @@ function setupWorld() {
     var floorTexture = new THREE.ImageUtils.loadTexture( 'img/space/wallcopy.png' );
     floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping; 
     floorTexture.repeat.set( 2, 2 );
-    var floorMaterial = new THREE.MeshBasicMaterial( { map: floorTexture, side: THREE.DoubleSide, transparent:true } );
+    var floorMaterial = new THREE.MeshBasicMaterial( { map: floorTexture, side: THREE.DoubleSide, transparent:true, } );
     var floorGeometry = new THREE.PlaneGeometry(600, 600, 1, 1);
     var floor = new THREE.Mesh(floorGeometry, floorMaterial);
     floor.position.y = -10;
@@ -113,11 +113,6 @@ function setupWorld() {
     floor.rotation.y = Math.PI / 2.5;
     floor.receiveShadow = true;
     scene.add(floor);
-
-
-
-
-
 
     bk.position.y = 0;
     bk.position.z = -220;
