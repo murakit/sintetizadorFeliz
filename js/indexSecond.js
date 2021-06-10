@@ -51,7 +51,7 @@ function setupWorld() {
     renderer = new THREE.WebGLRenderer();
     //renderer.setSize(window.innerHeight,window.innerWidth);
     document.body.appendChild(renderer.domElement);
-    //renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setPixelRatio(window.devicePixelRatio);
     element = renderer.domElement;
     $container.append(element);
 
@@ -78,9 +78,9 @@ function setupWorld() {
 
 
 
-    var floorTexture = new THREE.ImageUtils.loadTexture( 'img/space/wallcopy.png' );
+    var floorTexture = new THREE.ImageUtils.loadTexture( 'img/space/cd.png' );
     floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping; 
-    floorTexture.repeat.set( 2, 2 );
+    floorTexture.repeat.set( 1, 1 );
     var floorMaterial = new THREE.MeshBasicMaterial( { map: floorTexture, side: THREE.DoubleSide, transparent:true, } );
     var floorGeometry = new THREE.PlaneGeometry(600, 600, 1, 1);
     var floor = new THREE.Mesh(floorGeometry, floorMaterial);

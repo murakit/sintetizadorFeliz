@@ -55,7 +55,7 @@ function setupWorld() {
     renderer = new THREE.WebGLRenderer();
     //renderer.setSize(window.innerHeight,window.innerWidth);
     document.body.appendChild(renderer.domElement);
-    //renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setPixelRatio(window.devicePixelRatio);
     element = renderer.domElement;
     $container.append(element);
 
@@ -118,7 +118,7 @@ function setupWorld() {
     assets.position.z = 60;
     assets.rotation.y = Math.PI / 2;
     assets.receiveShadow = true;
-    scene.add(assets);
+   // scene.add(assets);
 
 
 
@@ -421,8 +421,6 @@ function setupWorld() {
 
 
         setInterval(function() {
-
-          
             camera.position.set(Math.random() * 500, Math.random() * 400, Math.random() * 400);
             controls.update();
         }, 1800);
