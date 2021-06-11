@@ -20,7 +20,7 @@ var back = new THREE.Mesh(backGeometry, backMaterial);
 
 var loadingScreen = document.getElementById( 'loading-screen' );
 
-
+var pointlight = new THREE.SpotLight( 0XFFFFFF , 3 ); // soft white light
 setUp();
 
 function setUp() {
@@ -343,6 +343,7 @@ function setupWorld() {
         mp3.loop=true;
         mp3.play();
 
+
         if (mp3.duration > 0 && !mp3.paused) {
             console.log("playiiii");
             textLyrics();
@@ -386,7 +387,7 @@ function setupWorld() {
 
     function animate() {
         back.rotation.x += 0.005;
-
+        pointlight.rotation.y += 0.005;
         requestAnimationFrame( animate );
         //var delta = clock.getDelta();
         var delta = clock.getDelta();
@@ -433,10 +434,10 @@ function setupWorld() {
         pointlight.position.z=100;
        //scene.add( pointlight ); 
 
-        var pointlight = new THREE.HemisphereLight( 0XFFFFFF , 20 ); // soft white light
-        pointlight.position.y=700;
-        pointlight.position.z=0;
-        scene.add( pointlight ); 
+
+       pointlight.position.y=3000;
+       pointlight.position.z=0;
+       scene.add( pointlight ); 
 
     }
 

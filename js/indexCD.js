@@ -16,11 +16,11 @@ var materials = [];
 var textures = [];
 var geometries = [];
 
-var bkTexture = new THREE.ImageUtils.loadTexture( 'img/space/butons.jpg' );
+var bkTexture = new THREE.ImageUtils.loadTexture( 'img/space/top.jpg' );
 bkTexture.wrapS = bkTexture.wrapT = THREE.RepeatWrapping; 
 bkTexture.repeat.set( 1, 1 );
 var bkMaterial = new THREE.MeshBasicMaterial( { map: bkTexture, side: THREE.DoubleSide, transparent:true } );
-var bkGeometry = new THREE.CubeGeometry(2500, 2500, 2500, 1);
+var bkGeometry = new THREE.SphereGeometry(2500, 2500);
 var bk = new THREE.Mesh(bkGeometry, bkMaterial);
 var loadingScreen = document.getElementById( 'loading-screen' );
 
@@ -51,7 +51,7 @@ function setupWorld() {
     renderer = new THREE.WebGLRenderer();
     //renderer.setSize(window.innerHeight,window.innerWidth);
     document.body.appendChild(renderer.domElement);
-    //renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setPixelRatio(window.devicePixelRatio);
     element = renderer.domElement;
     $container.append(element);
 
@@ -182,7 +182,7 @@ function setupWorld() {
 
 
     var loader = new THREE.GLTFLoader(manager);
-        loader.load('models/cd/nuevarola.glb', function ( gltf ) {
+        loader.load('models/cd/nuevarola2.glb', function ( gltf ) {
            /* const tloader = new THREE.TextureLoader();
             tloader.load("img/pl07_skin.png", function(tloader){
                 gltf.scene.traverse( function ( child ) {
@@ -366,12 +366,12 @@ function setupWorld() {
         scene.add( pointlight ); 
 
 
-        var pointlight = new THREE.PointLight( 0XFFFFFF , 1 ); // soft white light
+        var pointlight = new THREE.PointLight( 0XFFFFFF , 0.3 ); // soft white light
         pointlight.position.y=600;
         pointlight.position.z=100;
         scene.add( pointlight ); 
 
-        var pointlight = new THREE.HemisphereLight( 0XFFFFFF , 15 ); // soft white light
+        var pointlight = new THREE.HemisphereLight( 0XFFFFFF , 1 ); // soft white light
         pointlight.position.y=700;
         pointlight.position.z=0;
        scene.add( pointlight ); 
