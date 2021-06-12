@@ -42,7 +42,7 @@ function setupWorld() {
     scene = new THREE.Scene();
     scene.background = new THREE.Color('#000000');
 
-    camera = new THREE.PerspectiveCamera(100, 1, 0.001, 10000);
+    camera = new THREE.PerspectiveCamera(90, 1, 0.001, 10000);
     //camera.target = new THREE.Vector3(0, 500, 200);
     camera.position.set(0, 0, 300);
     //camera.position.set(0,0,0);
@@ -66,7 +66,8 @@ function setupWorld() {
     controls.staticMoving = true;
     controls.dynamicDampingFactor = 1;
     controls.maxPolarAngle = Math.PI / 2;
-
+    controls.minDistance = 0;
+    controls.maxDistance = 2200;
     controls.target.set(-30, 240, 0);
     controls.update();
 
@@ -127,34 +128,6 @@ function setupWorld() {
     scene.add(floor);*/
 
     
-
-    var murakit = new THREE.MTLLoader();
-    murakit.load("models/rockolas.mtl", function(materials) {
-      materials.preload();
-      console.log(materials);
-    
-      var murakit = new THREE.OBJLoader();
-      murakit.setMaterials(materials);
-    
-      murakit.load("models/rockolas.obj", function(mesh) {
-      scene.add(mesh);
-        
-      });
-    });
-
-    var murakit = new THREE.MTLLoader();
-    murakit.load("models/rockolas2.mtl", function(materials) {
-      materials.preload();
-      console.log(materials);
-    
-      var murakit = new THREE.OBJLoader();
-      murakit.setMaterials(materials);
-    
-      murakit.load("models/rockolas2.obj", function(mesh) {
-      scene.add(mesh);
-        
-      });
-    });
 
     const manager = new THREE.LoadingManager();
     manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
@@ -219,6 +192,41 @@ function setupWorld() {
         }
     );
 
+
+    var loader = new THREE.GLTFLoader(manager);
+    loader.load('models/cd/modem.glb', function ( gltf ) {
+       /* const tloader = new THREE.TextureLoader();
+        tloader.load("img/pl07_skin.png", function(tloader){
+            gltf.scene.traverse( function ( child ) {
+                if ( child.isMesh ) {
+                child.material.map = tloader;
+                child.material.needsUpdate = true;
+                child.material.flipY = false;
+                }
+
+            });
+        });*/
+
+        gltf.scene.traverse( function( object ) {
+
+            object.frustumCulled = false;
+        
+        } );
+        
+
+       
+       // scene.add( mesh );
+        scene.add( gltf.scene );
+
+    },
+    function ( xhr ) {
+        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+    },
+    function ( error ) {
+        console.log( 'An error happened' );
+    }
+);
 
 
 }

@@ -37,7 +37,7 @@ function setupWorld() {
     scene = new THREE.Scene();
     scene.background = new THREE.Color('#000000');
 
-    camera = new THREE.PerspectiveCamera(110, 1, 0.001, 10000);
+    camera = new THREE.PerspectiveCamera(100, 1, 0.001, 10000);
     //camera.target = new THREE.Vector3(0, 500, 200);
     camera.position.set(300, 500, 1500);
     //camera.position.set(0,0,0);
@@ -413,22 +413,22 @@ function setupWorld() {
 
 
     function lights() {
-        var light = new THREE.HemisphereLight( 0xFFFFFF, 1 ); // soft white light
+        var light = new THREE.HemisphereLight( 0xffc0cb, 1 ); // soft white light
         light.position.y=600;
         //scene.add( light );
 
-        var pointlight = new THREE.HemisphereLight( 0xFFFFFF, 1 ); // soft white light
+        var pointlight = new THREE.HemisphereLight( 0xffc0cb, 1 ); // soft white light
         pointlight.position.y=500;
         pointlight.position.x=600;
         //scene.add( pointlight ); 
 
-        var pointlight = new THREE.HemisphereLight( 0xFFFFFF, 1 ); // soft white light
+        var pointlight = new THREE.HemisphereLight( 0xffc0cb, 1 ); // soft white light
         pointlight.position.y=800;
         pointlight.position.z=1900;
         scene.add( pointlight ); 
 
 
-        var pointlight = new THREE.SpotLight( 0XFFFFFF , 1 ); // soft white light
+        var pointlight = new THREE.SpotLight( 0xffc0cb , 1 ); // soft white light
         pointlight.position.y=200;
         pointlight.position.z=-100;
         pointlight.position.x=-400;
@@ -444,7 +444,7 @@ function setupWorld() {
      //scene.add( pointlight ); 
      scene.add( pointlight ); 
 
-     var pointlight = new THREE.SpotLight( 0XFFFFFF , 0.5 ); // soft white light
+     var pointlight = new THREE.SpotLight( 0xffc0cb , 0.5 ); // soft white light
      pointlight.position.y=200;
      pointlight.position.z=-100;
      pointlight.position.x=-30;
@@ -452,7 +452,7 @@ function setupWorld() {
    // scene.add( pointlight ); 
 
 
-   var pointlight = new THREE.SpotLight( 0XFFFFFF , 0.5 ); // soft white light
+   var pointlight = new THREE.SpotLight( 0xffc0cb , 0.5 ); // soft white light
    pointlight.position.y=200;
    pointlight.position.z=-100;
    pointlight.position.x=800;
