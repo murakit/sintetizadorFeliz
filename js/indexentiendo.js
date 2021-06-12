@@ -37,7 +37,7 @@ function setupWorld() {
     scene = new THREE.Scene();
     scene.background = new THREE.Color('#000000');
 
-    camera = new THREE.PerspectiveCamera(90, 1, 0.001, 10000);
+    camera = new THREE.PerspectiveCamera(110, 1, 0.001, 10000);
     //camera.target = new THREE.Vector3(0, 500, 200);
     camera.position.set(300, 500, 1500);
     //camera.position.set(0,0,0);
@@ -63,7 +63,7 @@ function setupWorld() {
     controls.maxPolarAngle = Math.PI / 1.5;
     controls.minDistance = 0;
     controls.maxDistance = 2200;
-    controls.target.set(50, 380, 0);
+    controls.target.set(170, 280, 0);
     controls.update();
 
     var width  = $container.width();
@@ -74,10 +74,7 @@ function setupWorld() {
 
 
 
-    var floorTexture = new THREE.ImageUtils.loadTexture( 'img/space/Espiral-R.gif' );
-    floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping; 
-    floorTexture.repeat.set( 3, 3 );
-    var floorMaterial = new THREE.MeshLambertMaterial( { map: floorTexture, side: THREE.DoubleSide, transparent:false } );
+    var floorMaterial = new THREE.MeshStandardMaterial( { color: 0xffc0cb, roughness: 0.3, metalness: 1} );
     var floorGeometry = new THREE.BoxGeometry(1200, 600, 200, 1);
     var floor = new THREE.Mesh(floorGeometry, floorMaterial);
     floor.position.y = -120;
@@ -91,10 +88,11 @@ function setupWorld() {
     floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping; 
     //floorTexture.repeat.set( 6, 6 );
     var floorMaterial = new THREE.MeshBasicMaterial( { map: floorTexture, side: THREE.DoubleSide, transparent:false } );
-    var floorGeometry = new THREE.BoxGeometry(100, 90, 70, 1);
+    var floorGeometry = new THREE.SphereGeometry(70, 90, 70, 1);
     var floor = new THREE.Mesh(floorGeometry, floorMaterial);
-    floor.position.y =60;
+    floor.position.y =120;
     floor.position.x = 600;
+    floor.position.z = 120;
     floor.rotation.y = Math.PI / -2.5;
     floor.receiveShadow = true;
     scene.add(floor);
@@ -103,15 +101,16 @@ function setupWorld() {
     floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping; 
     //floorTexture.repeat.set( 6, 6 );
     var floorMaterial = new THREE.MeshBasicMaterial( { map: floorTexture, side: THREE.DoubleSide, transparent:false } );
-    var floorGeometry = new THREE.BoxGeometry(130, 90, 70, 1);
+    var floorGeometry = new THREE.SphereGeometry(70, 90, 70, 1);
     var floor = new THREE.Mesh(floorGeometry, floorMaterial);
-    floor.position.y =60;
-    floor.position.x = -180;
+    floor.position.y =120;
+    floor.position.x = -290;
     floor.rotation.y = Math.PI / 2.5;
+    floor.position.z = 120;
     floor.receiveShadow = true;
     scene.add(floor);
 
-    var floorTexture = new THREE.ImageUtils.loadTexture( 'img/6-2-griffin-transparent.png' );
+    var floorTexture = new THREE.ImageUtils.loadTexture( 'img/disco.png' );
     floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping; 
     //floorTexture.repeat.set( 6, 6 );
     var floorMaterial = new THREE.MeshBasicMaterial( { map: floorTexture, side: THREE.DoubleSide, transparent:true } );
@@ -429,15 +428,36 @@ function setupWorld() {
         scene.add( pointlight ); 
 
 
-        var pointlight = new THREE.PointLight( 0XFFFFFF , 1 ); // soft white light
-        pointlight.position.y=600;
-        pointlight.position.z=100;
+        var pointlight = new THREE.SpotLight( 0XFFFFFF , 1 ); // soft white light
+        pointlight.position.y=200;
+        pointlight.position.z=-100;
+        pointlight.position.x=-400;
+
        //scene.add( pointlight ); 
-
-
-       pointlight.position.y=3000;
-       pointlight.position.z=0;
        scene.add( pointlight ); 
+
+
+      var pointlight = new THREE.SpotLight( 0XFFFFFF , 0.5 ); // soft white light
+      pointlight.position.y=200;
+      pointlight.position.z=-100;
+      pointlight.position.x=400;
+     //scene.add( pointlight ); 
+     scene.add( pointlight ); 
+
+     var pointlight = new THREE.SpotLight( 0XFFFFFF , 0.5 ); // soft white light
+     pointlight.position.y=200;
+     pointlight.position.z=-100;
+     pointlight.position.x=-30;
+    scene.add( pointlight ); 
+   // scene.add( pointlight ); 
+
+
+   var pointlight = new THREE.SpotLight( 0XFFFFFF , 0.5 ); // soft white light
+   pointlight.position.y=200;
+   pointlight.position.z=-100;
+   pointlight.position.x=800;
+     //scene.add( pointlight ); 
+    scene.add( pointlight ); 
 
     }
 
