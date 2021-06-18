@@ -90,7 +90,7 @@ function setupWorld() {
     floor.position.x = -150;
     floor.rotation.x = Math.PI / -2;
    // floor.receiveShadow = true;
-   scene.add(floor);
+  // scene.add(floor);
 
 
 
@@ -219,7 +219,7 @@ loader.load('models/cd/compu.glb', function ( gltf ) {
 
    
    // scene.add( mesh );
-    scene.add( gltf.scene );
+    //scene.add( gltf.scene );
 
 },
 function ( xhr ) {
@@ -231,6 +231,81 @@ function ( error ) {
 }
 );
 
+
+for( var i = 0; i < 22; i++ ){
+    loadImgsThree(manager); 
+    loadImgsAnime(manager);
+    loadImgsDos(manager);
+    loadImgsAnimeTres(manager);
+}
+
+
+function loadImgsThree(){
+    geometries = new THREE.PlaneGeometry(120, 120, 120);
+    textures = THREE.ImageUtils.loadTexture('img/animescards/logo' + i + '.gif' );
+    textures.wrapS = THREE.RepeatWrapping;
+    textures.wrapT= THREE.RepeatWrapping;
+    textures.repeat.set( 1, 1 );
+    materials = new THREE.MeshLambertMaterial({map:textures, side: THREE.DoubleSide, transparent:true, depthWrite: false, depthTest: false});
+    var planes = new THREE.Mesh(geometries, materials);
+    planes.material.side = THREE.DoubleSide;
+    planes.position.x = Math.random() * -700;
+    planes.position.y = Math.random() * 1700;
+    planes.position.z = Math.random() * 700;
+    //cloud.add(planes);
+    scene.add( planes );
+
+}
+
+function loadImgsAnime(){
+    geometries = new THREE.PlaneGeometry(70, 70, 70);
+    textures = THREE.ImageUtils.loadTexture('img/animescards/logo' + i + '.gif' );
+    textures.wrapS = THREE.RepeatWrapping;
+    textures.wrapT= THREE.RepeatWrapping;
+    textures.repeat.set( 1, 1 );
+    materials = new THREE.MeshLambertMaterial({map:textures, side: THREE.DoubleSide, transparent:true, depthWrite: false, depthTest: false});
+    var planes = new THREE.Mesh(geometries, materials);
+    planes.material.side = THREE.DoubleSide;
+    planes.position.x = Math.random() * -400;
+    planes.position.y = Math.random() * 1200;
+    planes.position.z = Math.random() * 300;
+    //cloud.add(planes);
+    scene.add( planes );
+
+}
+
+function loadImgsDos(){
+    geometries = new THREE.PlaneGeometry(70, 70, 70);
+    textures = THREE.ImageUtils.loadTexture('img/animescards/logo' + i + '.gif' );
+    textures.wrapS = THREE.RepeatWrapping;
+    textures.wrapT= THREE.RepeatWrapping;
+    textures.repeat.set( 1, 1 );
+    materials = new THREE.MeshLambertMaterial({map:textures, side: THREE.DoubleSide, transparent:true, depthWrite: false, depthTest: false});
+    var planes = new THREE.Mesh(geometries, materials);
+    planes.material.side = THREE.DoubleSide;
+    planes.position.x = Math.random() * 400;
+    planes.position.y = Math.random() * 1200;
+    planes.position.z = Math.random() * -300;
+    //cloud.add(planes);
+    scene.add( planes );
+
+}
+
+function loadImgsAnimeTres() {
+    geometries = new THREE.PlaneGeometry(40, 70, 70);
+    textures = THREE.ImageUtils.loadTexture('img/animescards/logo' + i + '.gif' );
+    textures.wrapS = THREE.RepeatWrapping;
+    textures.wrapT= THREE.RepeatWrapping;
+    textures.repeat.set( 1, 1 );
+    materials = new THREE.MeshLambertMaterial({map:textures, side: THREE.DoubleSide, transparent:true, depthWrite: false, depthTest: false});
+    var planes = new THREE.Mesh(geometries, materials);
+    planes.material.side = THREE.DoubleSide;
+    planes.position.x = Math.random() * 400;
+    planes.position.y = Math.random() * 900;
+    planes.position.z = Math.random() * -100;
+    //cloud.add(planes);
+    scene.add( planes );
+}
 
 }
 
