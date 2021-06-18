@@ -84,7 +84,7 @@ function setupWorld() {
     floor.receiveShadow = true;
    scene.add(floor);
 
-    var floorTexture = new THREE.ImageUtils.loadTexture( 'img/space/top.jpg' );
+    var floorTexture = new THREE.ImageUtils.loadTexture( 'img/lavox.jpg' );
     floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping; 
     //floorTexture.repeat.set( 6, 6 );
     var floorMaterial = new THREE.MeshBasicMaterial( { map: floorTexture, side: THREE.DoubleSide, transparent:false } );
@@ -97,7 +97,7 @@ function setupWorld() {
     floor.receiveShadow = true;
     scene.add(floor);
 
-    var floorTexture = new THREE.ImageUtils.loadTexture( 'img/space/top.jpg' );
+    var floorTexture = new THREE.ImageUtils.loadTexture( 'img/lavox.jpg' );
     floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping; 
     //floorTexture.repeat.set( 6, 6 );
     var floorMaterial = new THREE.MeshBasicMaterial( { map: floorTexture, side: THREE.DoubleSide, transparent:false } );
@@ -110,7 +110,7 @@ function setupWorld() {
     floor.receiveShadow = true;
     scene.add(floor);
 
-    var floorTexture = new THREE.ImageUtils.loadTexture( 'img/disco.png' );
+    var floorTexture = new THREE.ImageUtils.loadTexture( 'img/lavox.jpg' );
     floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping; 
     //floorTexture.repeat.set( 6, 6 );
     var floorMaterial = new THREE.MeshBasicMaterial( { map: floorTexture, side: THREE.DoubleSide, transparent:true } );
@@ -156,7 +156,7 @@ function setupWorld() {
     back.position.z = -220;
     back.rotation.x = Math.PI / 2;
     back.receiveShadow = true;
-    scene.add(back);
+    //scene.add(back);
 
     
 
@@ -262,7 +262,7 @@ function setupWorld() {
         var planes = new THREE.Mesh(geometries, materials);
         planes.material.side = THREE.DoubleSide;
         planes.position.x = Math.random() * -900;
-        planes.position.y = Math.random() * 1400;
+        planes.position.y = Math.random() * 1900;
         planes.position.z = Math.random() * -900;
         //cloud.add(planes);
         scene.add( planes );
@@ -285,7 +285,7 @@ function setupWorld() {
         var planes = new THREE.Mesh(geometries, materials);
         planes.material.side = THREE.DoubleSide;
         planes.position.x = Math.random() * -900;
-        planes.position.y = Math.random() * 1200;
+        planes.position.y = Math.random() * 1900;
         planes.position.z = Math.random() * 900;
         //cloud.add(planes);
         scene.add( planes );
@@ -422,13 +422,13 @@ function setupWorld() {
         pointlight.position.x=600;
         //scene.add( pointlight ); 
 
-        var pointlight = new THREE.HemisphereLight( 0xffc0cb, 1 ); // soft white light
+        var pointlight = new THREE.HemisphereLight( 0xffc0cb, 2 ); // soft white light
         pointlight.position.y=800;
         pointlight.position.z=1900;
         scene.add( pointlight ); 
 
 
-        var pointlight = new THREE.SpotLight( 0xffc0cb , 1 ); // soft white light
+        var pointlight = new THREE.SpotLight( 0xFF0000 , 1 ); // soft white light
         pointlight.position.y=200;
         pointlight.position.z=-100;
         pointlight.position.x=-400;
@@ -437,14 +437,14 @@ function setupWorld() {
        scene.add( pointlight ); 
 
 
-      var pointlight = new THREE.SpotLight( 0XFFFFFF , 0.5 ); // soft white light
+      var pointlight = new THREE.SpotLight( 0xFF0000 , 0.5 ); // soft white light
       pointlight.position.y=200;
       pointlight.position.z=-100;
       pointlight.position.x=400;
      //scene.add( pointlight ); 
      scene.add( pointlight ); 
 
-     var pointlight = new THREE.SpotLight( 0xffc0cb , 0.5 ); // soft white light
+     var pointlight = new THREE.SpotLight( 0xFF0000 , 0.5 ); // soft white light
      pointlight.position.y=200;
      pointlight.position.z=-100;
      pointlight.position.x=-30;
@@ -452,7 +452,7 @@ function setupWorld() {
    // scene.add( pointlight ); 
 
 
-   var pointlight = new THREE.SpotLight( 0xffc0cb , 0.5 ); // soft white light
+   var pointlight = new THREE.SpotLight( 0xFF0000 , 0.5 ); // soft white light
    pointlight.position.y=200;
    pointlight.position.z=-100;
    pointlight.position.x=800;

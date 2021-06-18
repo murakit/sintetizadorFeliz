@@ -16,9 +16,9 @@ var materials = [];
 var textures = [];
 var geometries = [];
 
-var bkTexture = new THREE.ImageUtils.loadTexture( 'img/space/top.jpg' );
+var bkTexture = new THREE.ImageUtils.loadTexture( 'img/cd/collage.jpg' );
 bkTexture.wrapS = bkTexture.wrapT = THREE.RepeatWrapping; 
-bkTexture.repeat.set( 1, 1 );
+bkTexture.repeat.set( 2, 2 );
 var bkMaterial = new THREE.MeshBasicMaterial( { map: bkTexture, side: THREE.DoubleSide, transparent:true } );
 var bkGeometry = new THREE.SphereGeometry(2500, 2500);
 var bk = new THREE.Mesh(bkGeometry, bkMaterial);
@@ -80,15 +80,16 @@ function setupWorld() {
 
 
     var floorTexture = new THREE.ImageUtils.loadTexture( 'img/piso.jpg' );
-    floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping; 
-    floorTexture.repeat.set( 6, 6 );
-    var floorMaterial = new THREE.MeshBasicMaterial( { map: floorTexture, side: THREE.DoubleSide, transparent:true } );
-    var floorGeometry = new THREE.PlaneGeometry(600, 600, 1, 1);
+    //floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping; 
+    //floorTexture.repeat.set( 6, 6 );
+    var floorMaterial = new THREE.MeshLambertMaterial( { map: floorTexture, opacity: 0.5,  side: THREE.DoubleSide} );
+    var floorGeometry = new THREE.CubeGeometry(1300, 1300, 200, 1);
     var floor = new THREE.Mesh(floorGeometry, floorMaterial);
-    floor.position.y = -50;
-    floor.position.z = -50;
-    floor.rotation.x = Math.PI / 2;
-    floor.receiveShadow = true;
+    floor.position.y = -150;
+    floor.position.z = -200;
+    floor.position.x = -150;
+    floor.rotation.x = Math.PI / -2;
+   // floor.receiveShadow = true;
    scene.add(floor);
 
 
@@ -155,7 +156,7 @@ function setupWorld() {
 
 
     var loader = new THREE.GLTFLoader(manager);
-        loader.load('models/cd/nuevarola2.glb', function ( gltf ) {
+        loader.load('models/cd/laterminal.glb', function ( gltf ) {
            /* const tloader = new THREE.TextureLoader();
             tloader.load("img/pl07_skin.png", function(tloader){
                 gltf.scene.traverse( function ( child ) {
@@ -193,39 +194,41 @@ function setupWorld() {
     );
 
 
-    var loader = new THREE.GLTFLoader(manager);
-    loader.load('models/cd/modem.glb', function ( gltf ) {
-       /* const tloader = new THREE.TextureLoader();
-        tloader.load("img/pl07_skin.png", function(tloader){
-            gltf.scene.traverse( function ( child ) {
-                if ( child.isMesh ) {
-                child.material.map = tloader;
-                child.material.needsUpdate = true;
-                child.material.flipY = false;
-                }
 
-            });
-        });*/
 
-        gltf.scene.traverse( function( object ) {
+var loader = new THREE.GLTFLoader(manager);
+loader.load('models/cd/compu.glb', function ( gltf ) {
+   /* const tloader = new THREE.TextureLoader();
+    tloader.load("img/pl07_skin.png", function(tloader){
+        gltf.scene.traverse( function ( child ) {
+            if ( child.isMesh ) {
+            child.material.map = tloader;
+            child.material.needsUpdate = true;
+            child.material.flipY = false;
+            }
 
-            object.frustumCulled = false;
-        
-        } );
-        
+        });
+    });*/
 
-       
-       // scene.add( mesh );
-        scene.add( gltf.scene );
+    gltf.scene.traverse( function( object ) {
 
-    },
-    function ( xhr ) {
-        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+        object.frustumCulled = false;
+    
+    } );
+    
 
-    },
-    function ( error ) {
-        console.log( 'An error happened' );
-    }
+   
+   // scene.add( mesh );
+    scene.add( gltf.scene );
+
+},
+function ( xhr ) {
+    console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+},
+function ( error ) {
+    console.log( 'An error happened' );
+}
 );
 
 
@@ -331,8 +334,8 @@ function setupWorld() {
     function animate() {
 
         requestAnimationFrame( animate );
-        bk.rotation.y += 0.005;
-        bk.rotation.z += 0.005;
+        bk.rotation.y -= 0.005;
+        bk.rotation.z -= 0.005;
 
         //var delta = clock.getDelta();
         var delta = clock.getDelta();
@@ -368,16 +371,16 @@ function setupWorld() {
         pointlight.position.x=600;
         //scene.add( pointlight ); 
 
-        var pointlight = new THREE.HemisphereLight( 0xFFFFFF, 1 ); // soft white light
+        var pointlight = new THREE.HemisphereLight( 0xFFFFFF, 0.6 ); // soft white light
         pointlight.position.y=800;
         pointlight.position.z=1900;
         scene.add( pointlight ); 
 
 
-        var pointlight = new THREE.PointLight( 0XFFFFFF , 0.3 ); // soft white light
-        pointlight.position.y=600;
-        pointlight.position.z=100;
-        scene.add( pointlight ); 
+        var pointlight = new THREE.PointLight( 0XFFFFFF , 1 ); // soft white light
+        pointlight.position.y=800;
+        pointlight.position.z=300;
+       // scene.add( pointlight ); 
 
         var pointlight = new THREE.HemisphereLight( 0XFFFFFF , 1 ); // soft white light
         pointlight.position.y=700;
