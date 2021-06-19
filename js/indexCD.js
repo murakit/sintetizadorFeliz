@@ -20,7 +20,7 @@ var bkTexture = new THREE.ImageUtils.loadTexture( 'img/cd/collage.jpg' );
 bkTexture.wrapS = bkTexture.wrapT = THREE.RepeatWrapping; 
 bkTexture.repeat.set( 2, 2 );
 var bkMaterial = new THREE.MeshBasicMaterial( { map: bkTexture, side: THREE.DoubleSide, transparent:true } );
-var bkGeometry = new THREE.SphereGeometry(600, 600, 600);
+var bkGeometry = new THREE.SphereGeometry(800, 800, 800);
 var bk = new THREE.Mesh(bkGeometry, bkMaterial);
 var loadingScreen = document.getElementById( 'loading-screen' );
 
@@ -42,7 +42,7 @@ function setupWorld() {
     scene = new THREE.Scene();
     scene.background = new THREE.Color('#000000');
 
-    camera = new THREE.PerspectiveCamera(80, 0.001, 0.01, 1000);
+    camera = new THREE.PerspectiveCamera(100, 1, 0.01, 10000);
     //camera = new THREE.PerspectiveCamera(50, 1, 0.001, 10000);
     //camera.target = new THREE.Vector3(0, 500, 200);
     camera.position.set(0, 0, 300);
