@@ -20,7 +20,7 @@ var bkTexture = new THREE.ImageUtils.loadTexture( 'img/cd/collage.jpg' );
 bkTexture.wrapS = bkTexture.wrapT = THREE.RepeatWrapping; 
 bkTexture.repeat.set( 2, 2 );
 var bkMaterial = new THREE.MeshBasicMaterial( { map: bkTexture, side: THREE.DoubleSide, transparent:true } );
-var bkGeometry = new THREE.SphereGeometry(2500, 2500);
+var bkGeometry = new THREE.SphereGeometry(600, 600, 600);
 var bk = new THREE.Mesh(bkGeometry, bkMaterial);
 var loadingScreen = document.getElementById( 'loading-screen' );
 
@@ -42,14 +42,19 @@ function setupWorld() {
     scene = new THREE.Scene();
     scene.background = new THREE.Color('#000000');
 
-    camera = new THREE.PerspectiveCamera(90, 1, 0.001, 10000);
+    camera = new THREE.PerspectiveCamera(80, 0.001, 0.01, 1000);
+    //camera = new THREE.PerspectiveCamera(50, 1, 0.001, 10000);
     //camera.target = new THREE.Vector3(0, 500, 200);
     camera.position.set(0, 0, 300);
     //camera.position.set(0,0,0);
     scene.add(camera);
 
-    renderer = new THREE.WebGLRenderer();
-    //renderer.setSize(window.innerHeight,window.innerWidth);
+    renderer = new THREE.WebGLRenderer({antialias: true,
+        alpha: true});
+    renderer.setSize(window.innerHeight,window.innerWidth);
+    renderer.shadowMap.enabled = true;
+    renderer.outputEncoding = THREE.sRGBEncoding;
+
     document.body.appendChild(renderer.domElement);
     renderer.setPixelRatio(window.devicePixelRatio);
     element = renderer.domElement;
@@ -67,7 +72,7 @@ function setupWorld() {
     controls.dynamicDampingFactor = 1;
     controls.maxPolarAngle = Math.PI / 2;
     controls.minDistance = 0;
-    controls.maxDistance = 2200;
+    controls.maxDistance = 1500;
     controls.target.set(-30, 240, 0);
     controls.update();
 
@@ -98,7 +103,7 @@ function setupWorld() {
 
     bk.position.y = 0;
     bk.position.z = -220;
-    bk.rotation.x = Math.PI / 2;
+    bk.rotation.y = Math.PI / 2;
     bk.receiveShadow = true;
     scene.add(bk);
 
@@ -172,6 +177,11 @@ function setupWorld() {
             gltf.scene.traverse( function( object ) {
 
                 object.frustumCulled = false;
+                object.frustumCulled = false;
+                object.castShadow = true;
+                object.receiveShadow = true;
+
+            
             
             } );
             
@@ -182,7 +192,7 @@ function setupWorld() {
            
            // scene.add( mesh );
             scene.add( gltf.scene );
-
+            
         },
         function ( xhr ) {
             console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
@@ -196,40 +206,7 @@ function setupWorld() {
 
 
 
-var loader = new THREE.GLTFLoader(manager);
-loader.load('models/cd/compu.glb', function ( gltf ) {
-   /* const tloader = new THREE.TextureLoader();
-    tloader.load("img/pl07_skin.png", function(tloader){
-        gltf.scene.traverse( function ( child ) {
-            if ( child.isMesh ) {
-            child.material.map = tloader;
-            child.material.needsUpdate = true;
-            child.material.flipY = false;
-            }
 
-        });
-    });*/
-
-    gltf.scene.traverse( function( object ) {
-
-        object.frustumCulled = false;
-    
-    } );
-    
-
-   
-   // scene.add( mesh );
-    //scene.add( gltf.scene );
-
-},
-function ( xhr ) {
-    console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-
-},
-function ( error ) {
-    console.log( 'An error happened' );
-}
-);
 
 
 for( var i = 0; i < 20; i++ ){
@@ -408,9 +385,7 @@ function loadImgsAnimeTres() {
 
     function animate() {
 
-        requestAnimationFrame( animate );
         bk.rotation.y -= 0.005;
-        bk.rotation.z -= 0.005;
 
         //var delta = clock.getDelta();
         var delta = clock.getDelta();
@@ -431,6 +406,7 @@ function loadImgsAnimeTres() {
         //mixer.update(this.clock.getDelta());
         //console.log(delta);
         controls.update();
+        requestAnimationFrame( animate );
 
     }
 
@@ -452,7 +428,7 @@ function loadImgsAnimeTres() {
         scene.add( pointlight ); 
 
 
-        var pointlight = new THREE.PointLight( 0XFFFFFF , 1 ); // soft white light
+        var pointlight = new THREE.PointLight( 0XFFC0CB , 1 ); // soft white light
         pointlight.position.y=800;
         pointlight.position.z=300;
        // scene.add( pointlight ); 
@@ -460,11 +436,21 @@ function loadImgsAnimeTres() {
         var pointlight = new THREE.HemisphereLight( 0XFFC0CB , 1 ); // soft white light
         pointlight.position.y=700;
         pointlight.position.z=0;
-       scene.add( pointlight ); 
+      // scene.add( pointlight ); 
 
-       var pointlight = new THREE.SpotLight( 0XFFFFFF , 0.4 ); // soft white light
-       pointlight.position.y=700;
-       pointlight.position.z=0;
+       var pointlight = new THREE.SpotLight( 0XFFC0CB , 2 ); // soft white light
+       pointlight.position.y=400;
+       pointlight.position.z=200;
+       pointlight.position.x=200;
+
+       scene.add( pointlight );
+
+
+       var pointlight = new THREE.SpotLight( 0XFFC0CB , 1.8 ); // soft white light
+       pointlight.position.y=1200;
+       pointlight.position.z=-400;
+       pointlight.position.x=-400;
+
        scene.add( pointlight );
 
     }

@@ -37,7 +37,9 @@ function setupWorld() {
     scene = new THREE.Scene();
     scene.background = new THREE.Color('#000000');
 
-    camera = new THREE.PerspectiveCamera(100, 1, 0.001, 10000);
+//    camera = new THREE.PerspectiveCamera(100, 1, 0.001, 10000);
+    camera = new THREE.PerspectiveCamera(100, 1, 0.01, 10000);
+
     //camera.target = new THREE.Vector3(0, 500, 200);
     camera.position.set(300, 500, 1500);
     //camera.position.set(0,0,0);
