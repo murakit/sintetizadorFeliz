@@ -1,0 +1,84 @@
+.mp3 {
+    position: fixed;
+    z-index: 999;
+    width: 75px;
+    height: 900;
+    margin-top: 3px;
+    margin-left:290px;
+}
+
+.mp32 {
+  position: fixed;
+  z-index: 99;
+  width: 35px;
+  height: 35px;
+  margin-top: 108px;
+  margin-left: 317px;
+}
+
+.mp33 {
+  position: fixed;
+  z-index: 99;
+  width: 35px;
+  height: 35px;
+  margin-top: 108px;
+  margin-left: 0px;
+
+}
+
+.buttonsPlay {
+  position: fixed;
+  z-index: 99;
+  width: 45px;
+  height: 35px;
+  margin-top: 300px;
+  margin-left: 30px;
+}
+
+.musicNots {
+  position: fixed;
+  z-index: 999;
+  margin-top: 2px;
+  margin-left: 0px;
+}
+
+#sizeMusic {
+  width: 290px;
+  height: 30px;
+}
+
+#size {
+  width: 35px;
+  height: 35px;
+}
+
+#sizeb1 {
+  margin-left: 64px;
+  width: 35px;
+  height: 33px;
+}
+
+
+#sizeb2 {
+  margin-left: 30px;
+  width: 35px;
+  height: 35px;
+}
+
+.download {
+  position: fixed;
+  z-index: 99;
+  width: 35px;
+  height: 900;
+  margin-top: 128px;
+  margin-left: 316px;
+}
+
+#sizeMusicGif {
+  position: fixed;
+  z-index: 999;
+  margin-top: 25px;
+  margin-left: -15px;
+  width: 360px;
+  height: 30px;
+}

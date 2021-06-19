@@ -232,7 +232,7 @@ function ( error ) {
 );
 
 
-for( var i = 0; i < 22; i++ ){
+for( var i = 0; i < 20; i++ ){
     loadImgsThree(manager); 
     loadImgsAnime(manager);
     loadImgsDos(manager);
@@ -241,7 +241,7 @@ for( var i = 0; i < 22; i++ ){
 
 
 function loadImgsThree(){
-    geometries = new THREE.PlaneGeometry(120, 120, 120);
+    geometries = new THREE.PlaneGeometry(40, 30);
     textures = THREE.ImageUtils.loadTexture('img/animescards/logo' + i + '.gif' );
     textures.wrapS = THREE.RepeatWrapping;
     textures.wrapT= THREE.RepeatWrapping;
@@ -258,51 +258,51 @@ function loadImgsThree(){
 }
 
 function loadImgsAnime(){
-    geometries = new THREE.PlaneGeometry(70, 70, 70);
+    geometries = new THREE.PlaneGeometry(30, 50);
     textures = THREE.ImageUtils.loadTexture('img/animescards/logo' + i + '.gif' );
     textures.wrapS = THREE.RepeatWrapping;
     textures.wrapT= THREE.RepeatWrapping;
     textures.repeat.set( 1, 1 );
-    materials = new THREE.MeshLambertMaterial({map:textures, side: THREE.DoubleSide, transparent:true, depthWrite: false, depthTest: false});
+    materials = new THREE.MeshLambertMaterial({map:textures, side: THREE.DoubleSide, transparent:true});
     var planes = new THREE.Mesh(geometries, materials);
     planes.material.side = THREE.DoubleSide;
-    planes.position.x = Math.random() * -400;
+    planes.position.x = Math.random() * -600;
     planes.position.y = Math.random() * 1200;
-    planes.position.z = Math.random() * 300;
+    planes.position.z = Math.random() * 400;
     //cloud.add(planes);
     scene.add( planes );
 
 }
 
 function loadImgsDos(){
-    geometries = new THREE.PlaneGeometry(70, 70, 70);
+    geometries = new THREE.PlaneGeometry(30, 50);
     textures = THREE.ImageUtils.loadTexture('img/animescards/logo' + i + '.gif' );
     textures.wrapS = THREE.RepeatWrapping;
     textures.wrapT= THREE.RepeatWrapping;
     textures.repeat.set( 1, 1 );
-    materials = new THREE.MeshLambertMaterial({map:textures, side: THREE.DoubleSide, transparent:true, depthWrite: false, depthTest: false});
+    materials = new THREE.MeshLambertMaterial({map:textures, side: THREE.DoubleSide, transparent:true});
     var planes = new THREE.Mesh(geometries, materials);
     planes.material.side = THREE.DoubleSide;
-    planes.position.x = Math.random() * 400;
+    planes.position.x = Math.random() * 600;
     planes.position.y = Math.random() * 1200;
-    planes.position.z = Math.random() * -300;
+    planes.position.z = Math.random() * -400;
     //cloud.add(planes);
     scene.add( planes );
 
 }
 
 function loadImgsAnimeTres() {
-    geometries = new THREE.PlaneGeometry(40, 70, 70);
+    geometries = new THREE.PlaneGeometry(30, 50);
     textures = THREE.ImageUtils.loadTexture('img/animescards/logo' + i + '.gif' );
     textures.wrapS = THREE.RepeatWrapping;
     textures.wrapT= THREE.RepeatWrapping;
     textures.repeat.set( 1, 1 );
-    materials = new THREE.MeshLambertMaterial({map:textures, side: THREE.DoubleSide, transparent:true, depthWrite: false, depthTest: false});
+    materials = new THREE.MeshLambertMaterial({map:textures, side: THREE.DoubleSide});
     var planes = new THREE.Mesh(geometries, materials);
     planes.material.side = THREE.DoubleSide;
-    planes.position.x = Math.random() * 400;
+    planes.position.x = Math.random() * 600;
     planes.position.y = Math.random() * 900;
-    planes.position.z = Math.random() * -100;
+    planes.position.z = Math.random() * -900;
     //cloud.add(planes);
     scene.add( planes );
 }
@@ -457,10 +457,15 @@ function loadImgsAnimeTres() {
         pointlight.position.z=300;
        // scene.add( pointlight ); 
 
-        var pointlight = new THREE.HemisphereLight( 0XFFFFFF , 1 ); // soft white light
+        var pointlight = new THREE.HemisphereLight( 0XFFC0CB , 1 ); // soft white light
         pointlight.position.y=700;
         pointlight.position.z=0;
        scene.add( pointlight ); 
+
+       var pointlight = new THREE.SpotLight( 0XFFFFFF , 0.4 ); // soft white light
+       pointlight.position.y=700;
+       pointlight.position.z=0;
+       scene.add( pointlight );
 
     }
 
