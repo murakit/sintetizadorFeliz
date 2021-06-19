@@ -82,10 +82,10 @@ body {
 #lyrics {
     position: fixed;
     z-index: 99;
-    margin-top: 330px;
+    margin-top: 340px;
     margin-left: 63px;
     color:black;
-    font-size: 20px;
+    font-size: 25px;
     font-family: 'Tangerine', cursive;
     text-shadow: 4px 0 3px #e426bb, 0 0 5px #9900ff;
 
@@ -97,7 +97,7 @@ body {
     margin-top: 340px;
     margin-left: 40px;
     color:rgb(255, 255, 255);
-    font-size: 30px;
+    font-size: 25px;
     font-family: 'Tangerine', cursive;
     text-shadow: 4px 0 3px #ffffff, 0 0 5px #e426bb; 
 }
@@ -105,10 +105,10 @@ body {
 #lyricsSynth {
     position: fixed;
     z-index: 99;
-    margin-top: 320px;
+    margin-top: 340px;
     margin-left: 43px;
     color:white;
-    font-size: 24px;
+    font-size: 25px;
     font-family: 'Tangerine', cursive;
     text-shadow: 4px 0 3px #e426bb, 0 0 5px white;
 }
@@ -142,6 +142,7 @@ input[type="range"] {
     margin-top: 425px;
     margin-left: 10px;
     position: absolute;
+    font-family: 'Tangerine', cursive;
 
 
 }
@@ -154,10 +155,10 @@ p{
 }
 
 a {
-    color: blue;
-    text-decoration: underline;} 
+    color: white;
+    text-decoration: none;} 
 
-a:hover { color:white;
+a:hover { color:pink;
     text-decoration: none;
  }
 .nav a { color:white; };
@@ -285,10 +286,10 @@ h2 {
 }
 
 #frame_four {    
-    width: 252px;
-    height: 52px;
-    margin-top: 370px;
-    margin-left: 50px;
+    width: 281px;
+    height: 20px;
+    margin-top: 390px;
+    margin-left: 35px;
     position: fixed;
     z-index: 100;
 }
@@ -395,7 +396,7 @@ h1 {
     z-index: 99;
     width: 35px;
     height: 900;
-    margin-top: 348px;
+    margin-top: 355px;
 }
 
 #bocina2 {
@@ -403,7 +404,7 @@ h1 {
     z-index: 99;
     width: 35px;
     height: 900;
-    margin-top: 348px;
+    margin-top: 355px;
     margin-left: 316px;
 }
 

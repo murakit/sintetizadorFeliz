@@ -459,7 +459,7 @@ function loadImgsTwo(){
 
             setTimeout(function() {
                 console.log("Afrontview1");
-                camera.position.set(30, 20, -10);
+                camera.position.set(30, 20, 30);
                 controls.update();
             }, 4526);
         
@@ -490,7 +490,7 @@ function loadImgsTwo(){
 
             setTimeout(function() {
                 console.log("Bfrontview2");
-                camera.position.set(300, 300, 300);
+                camera.position.set(600, 600, 600);
                 controls.update();
             }, 22330);
 
@@ -520,7 +520,7 @@ function loadImgsTwo(){
 
             setTimeout(function() {
                 console.log("Bfrontview2");
-                camera.position.set(500, 500, 500);
+                camera.position.set(900, 900, 900);
                 controls.update();
             }, 41610);
 
@@ -539,7 +539,7 @@ function loadImgsTwo(){
         
             setTimeout(function() {
                 console.log("Bfrontview2");
-                camera.position.set(0, 0, -0);
+                camera.position.set(1200, 1200, 1200);
                 controls.update();
             }, 50400);
 
@@ -551,7 +551,7 @@ function loadImgsTwo(){
 
             setTimeout(function() {
                 console.log("Bfrontview2");
-                camera.position.set(500, 500, 500);
+                camera.position.set(2000, 2000, 2000);
                 controls.update();
             }, 54750);
 

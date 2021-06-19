@@ -592,20 +592,20 @@ function loadImgsAnimeTres() {
 
     function textLyrics() {
         setTimeout(function() {
-            document.getElementById("lyrics").innerHTML="SINTETIZADOR" + '<br>' + "FELIZ X4";
+            document.getElementById("lyrics").innerHTML="Quiero verte otra vez" + '<br>' + "Desde mi cyberSpace";
         }, 700);
     
     
         setTimeout(function() {
-            document.getElementById("lyrics").innerHTML="BABY YA ES URGENTE" + '<br>' + "CURAR ESE DOLOR X2";
+            document.getElementById("lyrics").innerHTML="Desde que llegaste aquí" + '<br>' + "aprete el botón de reset.";
         }, 10000);
 
         setTimeout(function() {
-            document.getElementById("lyrics").innerHTML="SINTETIZADOR" + '<br>' + "FELIZ X4";
+            document.getElementById("lyrics").innerHTML="y en la terminal" + '<br>' + "yo tecle $cd y /";
         }, 20700);
 
         setTimeout(function() {
-            document.getElementById("lyrics").innerHTML="BABY YA ES URGENTE" + '<br>' + "CURAR ESE DOLOR X2";
+            document.getElementById("lyrics").innerHTML="Al directorio de tu amorX2" ;
         }, 32110);
 
         setTimeout(function() {

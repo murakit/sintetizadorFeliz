@@ -56,6 +56,7 @@ function setupWorld() {
     //renderer.setSize(window.innerHeight,window.innerWidth);
     document.body.appendChild(renderer.domElement);
     renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.outputEncoding = THREE.sRGBEncoding;
     element = renderer.domElement;
     $container.append(element);
 
@@ -250,6 +251,8 @@ function setupWorld() {
         gltf.scene.traverse( function( object ) {
 
             object.frustumCulled = false;
+            object.encoding = THREE.sRGBEncoding;
+
 
         } );
 
@@ -319,9 +322,9 @@ function setupWorld() {
         materials = new THREE.MeshLambertMaterial({map:textures, side: THREE.DoubleSide, transparent:true, depthWrite: false, depthTest: false});
         var planes = new THREE.Mesh(geometries, materials);
         planes.material.side = THREE.DoubleSide;
-        planes.position.x = Math.random() * -60;
-        planes.position.y = Math.random() * 100;
-        planes.position.z = Math.random() * 60;
+        planes.position.x = Math.random() * -320;
+        planes.position.y = Math.random() * 300;
+        planes.position.z = Math.random() * 320;
         //cloud.add(planes);
         scene.add( planes );
 
@@ -420,10 +423,6 @@ function setupWorld() {
         }
 
 
-        setInterval(function() {
-            camera.position.set(Math.random() * 500, Math.random() * 400, Math.random() * 400);
-            controls.update();
-        }, 1800);
 
 
 }
@@ -445,6 +444,11 @@ function setupWorld() {
         if (!mp3.paused || myAudio.currentTime) {
             console.log("playiiii");
             textLyrics();
+
+        setInterval(function() {
+            camera.position.set(Math.random() * 500, Math.random() * 400, Math.random() * 400);
+            controls.update();
+        }, 1800);
         } else {
             //Not playing...maybe paused, stopped or never played.
         }
@@ -476,6 +480,11 @@ function setupWorld() {
         if (!mp3.paused || myAudio.currentTime) {
             console.log("playiiii");
             textLyrics();
+
+        setInterval(function() {
+            camera.position.set(Math.random()  *30, Math.random() * 30, Math.random() * 30);
+            controls.update();
+        }, 1800);
         } else {
             //Not playing...maybe paused, stopped or never played.
         }
