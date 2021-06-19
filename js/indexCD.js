@@ -384,6 +384,7 @@ function loadImgsAnimeTres() {
 
 
     function animate() {
+        requestAnimationFrame( animate );
 
         bk.rotation.y -= 0.005;
 
@@ -406,7 +407,6 @@ function loadImgsAnimeTres() {
         //mixer.update(this.clock.getDelta());
         //console.log(delta);
         controls.update();
-        requestAnimationFrame( animate );
 
     }
 
