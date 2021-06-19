@@ -49,14 +49,12 @@ function setupWorld() {
     //camera.position.set(0,0,0);
     scene.add(camera);
 
-    renderer = new THREE.WebGLRenderer({antialias: true,
-        alpha: true});
-    renderer.setSize(window.innerHeight,window.innerWidth);
-    renderer.shadowMap.enabled = true;
-    renderer.outputEncoding = THREE.sRGBEncoding;
 
+    renderer = new THREE.WebGLRenderer();
+    //renderer.setSize(window.innerHeight,window.innerWidth);
     document.body.appendChild(renderer.domElement);
     renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.outputEncoding = THREE.sRGBEncoding;
     element = renderer.domElement;
     $container.append(element);
 
@@ -177,9 +175,7 @@ function setupWorld() {
             gltf.scene.traverse( function( object ) {
 
                 object.frustumCulled = false;
-                object.frustumCulled = false;
-                object.castShadow = true;
-                object.receiveShadow = true;
+
 
             
             
@@ -211,9 +207,9 @@ function setupWorld() {
 
 for( var i = 0; i < 20; i++ ){
     loadImgsThree(manager); 
-    loadImgsAnime(manager);
-    loadImgsDos(manager);
-    loadImgsAnimeTres(manager);
+    //loadImgsAnime(manager);
+    //loadImgsDos(manager);
+  //  loadImgsAnimeTres(manager);
 }
 
 
@@ -384,9 +380,9 @@ function loadImgsAnimeTres() {
 
 
     function animate() {
-        requestAnimationFrame( animate );
 
         bk.rotation.y -= 0.005;
+        requestAnimationFrame( animate );
 
         //var delta = clock.getDelta();
         var delta = clock.getDelta();
