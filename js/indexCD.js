@@ -64,7 +64,7 @@ function setupWorld() {
     controls.dynamicDampingFactor = 1;
     controls.maxPolarAngle = Math.PI / 2;
     controls.minDistance = 0;
-    controls.maxDistance = 1500;
+    controls.maxDistance = 3000;
     controls.target.set(-30, 240, 0);
     controls.update();
 
@@ -152,7 +152,7 @@ function setupWorld() {
     var floorMaterial = new THREE.MeshLambertMaterial( { map: floorTexture, side: THREE.DoubleSide, transparent: true} );
     var floorGeometry = new THREE.SphereGeometry(800, 800);
     var floor = new THREE.Mesh(floorGeometry, floorMaterial);
-    floor.position.y = -150;
+    floor.position.y = -50;
     floor.position.z = -200;
     floor.position.x = -150;
     floor.rotation.y = Math.PI / 2;
@@ -165,7 +165,7 @@ function setupWorld() {
     bkTexture.wrapS = bkTexture.wrapT = THREE.RepeatWrapping; 
     bkTexture.repeat.set( 2, 2 );
     var bkMaterial = new THREE.MeshBasicMaterial( { map: bkTexture, side: THREE.DoubleSide} );
-    var bkGeometry = new THREE.SphereGeometry(1000, 1000);
+    var bkGeometry = new THREE.SphereGeometry(1200, 1200);
     var bk = new THREE.Mesh(bkGeometry, bkMaterial);
 
     bk.position.y = 0;
@@ -417,13 +417,13 @@ function loadImgsAnimeTres() {
     function cameraChanges() {
             setTimeout(function() {
                 console.log("Afrontview1");
-                camera.position.set(103, 434, 57);
+                camera.position.set(103, 234, 257);
                 controls.update();
             }, 2050);
 
             setTimeout(function() {
                 console.log("Afrontview1");
-                camera.position.set(400, 20, -10);
+                camera.position.set(-400, 20, 80);
                 controls.update();
             }, 3800);
         
@@ -436,43 +436,43 @@ function loadImgsAnimeTres() {
 
             setTimeout(function() {
                 console.log("Bfrontview2");
-                camera.position.set(0.7, 240, 105);
+                camera.position.set(3000, 240, 705);
                 controls.update();
             }, 7200);
 
             setTimeout(function() {
                 console.log("Bfrontview2");
-                camera.position.set(77.03, 281, 237);
+                camera.position.set(500, 240, 105);
                 controls.update();
             }, 10500);
 
             setTimeout(function() {
                 console.log("Bfrontview2");
-                camera.position.set(-129, 180, 289);
+                camera.position.set(-2029, 180, 289);
                 controls.update();
             }, 13500);
 
             setTimeout(function() {
                 console.log("Bfrontview2");
-                camera.position.set(79, 338, 17);
+                camera.position.set(-400, 20, 80);
                 controls.update();
             }, 16000);
 
             setTimeout(function() {
                 console.log("Bfrontview2");
-                camera.position.set(30, 30, 10);
+                camera.position.set(30, 30, -210);
                 controls.update();
             }, 21200);
 
             setTimeout(function() {
                 console.log("Bfrontview2");
-                camera.position.set(300, 300, 300);
+                camera.position.set(300, 300, 700);
                 controls.update();
             }, 24000);
 
             setTimeout(function() {
                 console.log("Bfrontview2");
-                camera.position.set(0.7, 240, 105);
+                camera.position.set(0.7, 240, 605);
                 controls.update();
             }, 26000);
 
@@ -503,19 +503,19 @@ function loadImgsAnimeTres() {
         
             setTimeout(function() {
                 console.log("Bfrontview2");
-                camera.position.set(0, 0, -0);
+                camera.position.set(-400, 20, 80);
                 controls.update();
             }, 40000);
 
             setTimeout(function() {
                 console.log("Bfrontview2");
-                camera.position.set(0.7, 240, 105);
+                camera.position.set(-400, 20, 80);
                 controls.update();
             }, 43000);
 
             setTimeout(function() {
                 console.log("Bfrontview2");
-                camera.position.set(500, 500, 500);
+                camera.position.set(-400, 20, 80);
                 controls.update();
             }, 46000);
 
@@ -532,28 +532,28 @@ function loadImgsAnimeTres() {
 
     function textLyrics() {
         setTimeout(function() {
-            document.getElementById("lyrics").innerHTML="Quiero verte otra vez dentro de mi cyberspace";
+            document.getElementById("lyricsCD").innerHTML="Quiero verte otra vez dentro de mi cyberspace";
         }, 5100);
     
     
         setTimeout(function() {
-            document.getElementById("lyrics").innerHTML="Desde que llegaste aquí aprete el botón de reset.";
+            document.getElementById("lyricsCD").innerHTML="Desde que llegaste aquí aprete el botón de reset.";
         }, 10200);
 
         setTimeout(function() {
-            document.getElementById("lyrics").innerHTML="y en la terminal yo tecle $cd y /";
+            document.getElementById("lyricsCD").innerHTML="y en la terminal yo tecle $cd y /";
         }, 16070);
 
         setTimeout(function() {
-            document.getElementById("lyrics").innerHTML="Al directorio de tu amorX4" ;
+            document.getElementById("lyricsCD").innerHTML="Al directorio de tu amorX4" ;
         }, 21200);
 
         setTimeout(function() {
-            document.getElementById("lyrics").innerHTML="y en la terminal yo tecle $cd y /";
+            document.getElementById("lyricsCD").innerHTML="y en la terminal yo tecle $cd y /";
         }, 31975);
 
         setTimeout(function() {
-            document.getElementById("lyrics").innerHTML="Al directorio de tu amorX4" ;
+            document.getElementById("lyricsCD").innerHTML="Al directorio de tu amorX4" ;
         }, 37600);
     
 

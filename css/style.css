@@ -115,6 +115,17 @@ body {
     text-shadow: 4px 0 3px #e426bb, 0 0 5px white;
 }
 
+#lyricsCD {
+    position: fixed;
+    z-index: 99;
+    margin-top: 360px;
+    margin-left: 43px;
+    color:white;
+    font-size: 25px;
+    font-family: 'Tangerine', cursive;
+    text-shadow: 4px 0 3px #e426bb, 0 0 5px white;
+}
+
 #volume-control {
     position: fixed;
     margin-top: -353px;
@@ -290,11 +301,11 @@ h2 {
 
 #frame_four {    
     width: 281px;
-    height: 20px;
+    height: 38px;
     margin-top: 390px;
     margin-left: 35px;
     position: fixed;
-    z-index: 100;
+    z-index: 98;
 }
 
 #yes {
@@ -399,7 +410,7 @@ h1 {
     z-index: 99;
     width: 35px;
     height: 900;
-    margin-top: 355px;
+    margin-top: 353px;
 }
 
 #bocina2 {
@@ -407,7 +418,7 @@ h1 {
     z-index: 99;
     width: 35px;
     height: 900;
-    margin-top: 355px;
+    margin-top: 353px;
     margin-left: 316px;
 }
 
