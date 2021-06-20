@@ -490,7 +490,7 @@ function setupWorld() {
             textLyrics();
 
         setInterval(function() {
-            camera.position.set(Math.random() * 400, Math.random() * 900, Math.random() * 600);
+            camera.position.set(Math.random() * 400, Math.random() * 600, Math.random() * 400);
             controls.update();
         }, 1800);
         } else {
