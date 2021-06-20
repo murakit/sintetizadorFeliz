@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/newStyle.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
@@ -19,13 +20,12 @@
     <!--<div id="main-container"></div>-->
 
     <audio id="myAudio">
-      <source src="audio/happyS21.mp3" type="audio/mp3">
+      <source src="audio/directoriodetuanmorNEW.mp3" type="audio/mp3">
     </audio>
 
     <img id="but1"   src="img/play.png">
 
     <div id="loading-screen"></div>
-
     <div id="interface">    </div>
 
        <!--- <img id="frame" src="img/notasmusicais2.gif">
@@ -74,23 +74,24 @@
         <img id="top" src="img/space/top.jpg">
 
 
-        <div id="lyricsSynth"></div>
+        <div id="lyrics"></div>
         <div id="secondinterface">
         <img id="Scndframe" src="img/notasmusicais2.gif">
         <img id="ScndframeTwo" src="img/logoMUSICAciber1.gif">
         <img id="ScndframeThree" src="img/notasmusicais2.gif">
 
         <input  id="volume-control"  type="range" min="0" max="30" value="23" step="5" >
-        <img id= "sizeMusicGif" src="img/interface/l13.gif">
 
+        <img id= "sizeMusicGif" src="img/interface/l13.gif">
     </div>
 
     <div id="buttons">
       <div id="1">
-      <p>      <a href="index.html">1. SINTETIZADOR FELIZ (REMIX)<br> en la Plaza de la Tecnología</a><br><br>
-        <a href="yoentiendo.html">2. Raver YO ENTIENDO...<br> Murakita en La Voz México</a><br><br>
-        <a href="happySynthInspo.html">3.ハッピーシンセサイザ-EasyPop(BETTI) Happy Synthesizer ~ fandub español<br> latino Murakyta on Vocals ¡EN LA CLASE DE MÚSICA! </a><br><br>
-        <a href="cdtuamor.html">4. $ cd/directoriodetuamor</a><br><br></p>
+      <p>
+      <a href="index.html">1. SINTETIZADOR FELIZ en la <br>Plaza de la Tecnología</a><br><br>
+      <a href="yoentiendo.html">2. Raver YO ENTIENDO...<br> Murakita en La Voz México</a><br><br>
+      <a href="happySynthInspo.html">3.ハッピーシンセサイザ-EasyPop(BETTI) Happy Synthesizer ~ fandub español<br> latino Murakyta on Vocals ¡EN LA CLASE DE MÚSICA! </a><br><br>
+      <a href="cdtuamor.html">4. $ cd/directoriodetuamor</a><br><br>
 
     </div>
     </div>
@@ -126,17 +127,13 @@
         audio.play();
       }
 
+
+
       let audioThree = document.getElementById("myAudio");
       let volume = document.querySelector("#volume-control");
-      volume.addEventListener("touchstart", handle, false);
       volume.addEventListener("change", function(e) {
-          audioThree.volume = e.currentTarget.value / 30;
+          audioThree.volume = e.currentTarget.value / 10;
       })
-
-      function handle () {
-        audioThree.volume = e.currentTarget.value / 30;
-      }
-
 
 
     </script>

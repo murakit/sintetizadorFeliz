@@ -16,12 +16,12 @@ var materials = [];
 var textures = [];
 var geometries = [];
 
-var bkTexture = new THREE.ImageUtils.loadTexture( 'img/cd/collage.jpg' );
+/*var bkTexture = new THREE.ImageUtils.loadTexture( 'img/cd/collage.jpg' );
 bkTexture.wrapS = bkTexture.wrapT = THREE.RepeatWrapping; 
 bkTexture.repeat.set( 2, 2 );
 var bkMaterial = new THREE.MeshBasicMaterial( { map: bkTexture, side: THREE.DoubleSide, transparent:true } );
 var bkGeometry = new THREE.SphereGeometry(800, 800, 800);
-var bk = new THREE.Mesh(bkGeometry, bkMaterial);
+var bk = new THREE.Mesh(bkGeometry, bkMaterial);*/
 var loadingScreen = document.getElementById( 'loading-screen' );
 
 
@@ -99,11 +99,11 @@ function setupWorld() {
 
 
 
-    bk.position.y = 0;
+   /* bk.position.y = 0;
     bk.position.z = -220;
     bk.rotation.y = Math.PI / 2;
     bk.receiveShadow = true;
-    scene.add(bk);
+    scene.add(bk);*/
 
 
 
@@ -381,7 +381,7 @@ function loadImgsAnimeTres() {
 
     function animate() {
 
-        bk.rotation.y -= 0.005;
+       // bk.rotation.y -= 0.005;
         requestAnimationFrame( animate );
 
         //var delta = clock.getDelta();
