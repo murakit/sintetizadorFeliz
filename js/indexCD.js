@@ -16,12 +16,6 @@ var materials = [];
 var textures = [];
 var geometries = [];
 
-/*var bkTexture = new THREE.ImageUtils.loadTexture( 'img/cd/collage.jpg' );
-bkTexture.wrapS = bkTexture.wrapT = THREE.RepeatWrapping; 
-bkTexture.repeat.set( 2, 2 );
-var bkMaterial = new THREE.MeshBasicMaterial( { map: bkTexture, side: THREE.DoubleSide, transparent:true } );
-var bkGeometry = new THREE.SphereGeometry(800, 800, 800);
-var bk = new THREE.Mesh(bkGeometry, bkMaterial);*/
 var loadingScreen = document.getElementById( 'loading-screen' );
 
 
@@ -42,7 +36,7 @@ function setupWorld() {
     scene = new THREE.Scene();
     scene.background = new THREE.Color('#000000');
 
-    camera = new THREE.PerspectiveCamera(100, 1, 0.01, 10000);
+    camera = new THREE.PerspectiveCamera(70, 1, 0.01, 10000);
     //camera = new THREE.PerspectiveCamera(50, 1, 0.001, 10000);
     //camera.target = new THREE.Vector3(0, 500, 200);
     camera.position.set(0, 0, 300);
@@ -82,61 +76,10 @@ function setupWorld() {
 
 
 
-    var floorTexture = new THREE.ImageUtils.loadTexture( 'img/piso.jpg' );
-    //floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping; 
-    //floorTexture.repeat.set( 6, 6 );
-    var floorMaterial = new THREE.MeshLambertMaterial( { map: floorTexture, opacity: 0.5,  side: THREE.DoubleSide} );
-    var floorGeometry = new THREE.CubeGeometry(1300, 1300, 200, 1);
-    var floor = new THREE.Mesh(floorGeometry, floorMaterial);
-    floor.position.y = -150;
-    floor.position.z = -200;
-    floor.position.x = -150;
-    floor.rotation.x = Math.PI / -2;
-   // floor.receiveShadow = true;
-  // scene.add(floor);
-
-
-
-
-
-   /* bk.position.y = 0;
-    bk.position.z = -220;
-    bk.rotation.y = Math.PI / 2;
-    bk.receiveShadow = true;
-    scene.add(bk);*/
-
-
-
-   /* var floorTexture = new THREE.ImageUtils.loadTexture( 'img/space/boton.png' );
-    floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping; 
-    //floorTexture.repeat.set( 6, 6 );
-    var floorMaterial = new THREE.MeshBasicMaterial( { map: floorTexture, side: THREE.DoubleSide, transparent:true } );
-    var floorGeometry = new THREE.PlaneGeometry(70, 70, 1, 1);
-    var floor = new THREE.Mesh(floorGeometry, floorMaterial);
-    floor.position.y = 700;
-    floor.position.x = 720;
-    floor.rotation.y = Math.PI / 2;
-    floor.receiveShadow = true;
-    scene.add(floor);
-
-    var floorTexture = new THREE.ImageUtils.loadTexture( 'img/space/31130-5-android-transparent-image.png' );
-    floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping; 
-    //floorTexture.repeat.set( 6, 6 );
-    var floorMaterial = new THREE.MeshBasicMaterial( { map: floorTexture, side: THREE.DoubleSide, transparent:true } );
-    var floorGeometry = new THREE.PlaneGeometry(230, 200, 1, 1);
-    var floor = new THREE.Mesh(floorGeometry, floorMaterial);
-    floor.position.y = 400;
-    floor.position.x = -420;
-    floor.rotation.y = Math.PI / 2;
-    floor.receiveShadow = true;
-    scene.add(floor);*/
-
-    
-
     const manager = new THREE.LoadingManager();
     manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
+        loadingScreen.innerHTML = ('Cargando:'+ '<br>' +  url + '<br>' + 'Favor de esperar' );
         console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
-        loadingScreen.innerHTML = ('Cargando:' + Math.floor(url) + '.\nLoaded ' + itemsLoaded  + itemsTotal );
        /* var mp3 = document.getElementById("myAudio");
         mp3.play();*/
     };
@@ -203,13 +146,41 @@ function setupWorld() {
 
 
 
+    var floorTexture = new THREE.ImageUtils.loadTexture( 'img/sky.png' );
+    floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping; 
+    floorTexture.repeat.set( 4, 4 );
+    var floorMaterial = new THREE.MeshLambertMaterial( { map: floorTexture, side: THREE.DoubleSide, transparent: true} );
+    var floorGeometry = new THREE.SphereGeometry(800, 800);
+    var floor = new THREE.Mesh(floorGeometry, floorMaterial);
+    floor.position.y = -150;
+    floor.position.z = -200;
+    floor.position.x = -150;
+    floor.rotation.y = Math.PI / 2;
+    scene.add(floor);
+
+
+
+
+    var bkTexture = new THREE.ImageUtils.loadTexture( 'img/cd/collage.jpg' );
+    bkTexture.wrapS = bkTexture.wrapT = THREE.RepeatWrapping; 
+    bkTexture.repeat.set( 2, 2 );
+    var bkMaterial = new THREE.MeshBasicMaterial( { map: bkTexture, side: THREE.DoubleSide} );
+    var bkGeometry = new THREE.SphereGeometry(1000, 1000);
+    var bk = new THREE.Mesh(bkGeometry, bkMaterial);
+
+    bk.position.y = 0;
+    bk.position.z = -220;
+    scene.add(bk);
+
+
+
 
 
 for( var i = 0; i < 20; i++ ){
     loadImgsThree(manager); 
-    //loadImgsAnime(manager);
-    //loadImgsDos(manager);
-  //  loadImgsAnimeTres(manager);
+    loadImgsAnime(manager);
+    loadImgsDos(manager);
+    loadImgsAnimeTres(manager);
 }
 
 
@@ -315,7 +286,7 @@ function loadImgsAnimeTres() {
             console.log("listopmiherma");
             cameraChanges();
             textLyrics();
-        }, 59000);
+        }, 51300);
 
 
     }
@@ -343,7 +314,7 @@ function loadImgsAnimeTres() {
             console.log("listopmiherma");
             cameraChanges();
             textLyrics();
-        }, 59000);
+        }, 51300);
     }
 
     function handleEnd(evt) {
@@ -360,28 +331,8 @@ function loadImgsAnimeTres() {
     }
 
 
-
-   /* for (let x=0; x< 2000; x++){
-        cameraChanges(x);
-        textLyrics(x);
-    }*/
-
-    
-  /*  
-    random camera changes
-  
-  setInterval(function () {
-        var rand =  Math.random()*2 - 1;
-        camera.position.set(rand * camera.position.x, rand * camera.position.z, rand * camera.position.y);
-    }, 3000);*/
-
-
-
-
-
     function animate() {
 
-       // bk.rotation.y -= 0.005;
         requestAnimationFrame( animate );
 
         //var delta = clock.getDelta();
@@ -403,6 +354,7 @@ function loadImgsAnimeTres() {
         //mixer.update(this.clock.getDelta());
         //console.log(delta);
         controls.update();
+        console.log(camera.position);
 
     }
 
@@ -418,7 +370,7 @@ function loadImgsAnimeTres() {
         pointlight.position.x=600;
         //scene.add( pointlight ); 
 
-        var pointlight = new THREE.HemisphereLight( 0xFFFFFF, 0.6 ); // soft white light
+        var pointlight = new THREE.HemisphereLight( 0XFFC0CB, 2 ); // soft white light
         pointlight.position.y=800;
         pointlight.position.z=1900;
         scene.add( pointlight ); 
@@ -434,15 +386,15 @@ function loadImgsAnimeTres() {
         pointlight.position.z=0;
       // scene.add( pointlight ); 
 
-       var pointlight = new THREE.SpotLight( 0XFFC0CB , 2 ); // soft white light
-       pointlight.position.y=400;
+       var pointlight = new THREE.SpotLight( 0XFFC0CB , 0.8 ); // soft white light
+       pointlight.position.y=1000;
        pointlight.position.z=200;
        pointlight.position.x=200;
 
        scene.add( pointlight );
 
 
-       var pointlight = new THREE.SpotLight( 0XFFC0CB , 1.8 ); // soft white light
+       var pointlight = new THREE.SpotLight( 0XFFC0CB , 0.6 ); // soft white light
        pointlight.position.y=1200;
        pointlight.position.z=-400;
        pointlight.position.x=-400;
@@ -465,107 +417,113 @@ function loadImgsAnimeTres() {
     function cameraChanges() {
             setTimeout(function() {
                 console.log("Afrontview1");
+                camera.position.set(103, 434, 57);
+                controls.update();
+            }, 2050);
+
+            setTimeout(function() {
+                console.log("Afrontview1");
+                camera.position.set(400, 20, -10);
+                controls.update();
+            }, 3800);
+        
+        
+            setTimeout(function() {
+                console.log("Bfrontview2");
+                camera.position.set(-144, 354, 98);
+                controls.update();
+            }, 5100);
+
+            setTimeout(function() {
+                console.log("Bfrontview2");
+                camera.position.set(0.7, 240, 105);
+                controls.update();
+            }, 7200);
+
+            setTimeout(function() {
+                console.log("Bfrontview2");
+                camera.position.set(77.03, 281, 237);
+                controls.update();
+            }, 10500);
+
+            setTimeout(function() {
+                console.log("Bfrontview2");
+                camera.position.set(-129, 180, 289);
+                controls.update();
+            }, 13500);
+
+            setTimeout(function() {
+                console.log("Bfrontview2");
+                camera.position.set(79, 338, 17);
+                controls.update();
+            }, 16000);
+
+            setTimeout(function() {
+                console.log("Bfrontview2");
                 camera.position.set(30, 30, 10);
                 controls.update();
-            }, 2435);
+            }, 21200);
+
+            setTimeout(function() {
+                console.log("Bfrontview2");
+                camera.position.set(300, 300, 300);
+                controls.update();
+            }, 24000);
+
+            setTimeout(function() {
+                console.log("Bfrontview2");
+                camera.position.set(0.7, 240, 105);
+                controls.update();
+            }, 26000);
+
+            setTimeout(function() {
+                console.log("Bfrontview2");
+                camera.position.set(30, 30, 10);
+                controls.update();
+            }, 28000);
+
+            setTimeout(function() {
+                console.log("Bfrontview2");
+                camera.position.set(500, 500, 500);
+                controls.update();
+            }, 30000);
+
+            setTimeout(function() {
+                console.log("Afrontview1");
+                camera.position.set(30, 30, 10);
+                controls.update();
+            }, 32000);
 
             setTimeout(function() {
                 console.log("Afrontview1");
                 camera.position.set(30, 20, -10);
                 controls.update();
-            }, 4526);
+            }, 37500);
         
         
             setTimeout(function() {
                 console.log("Bfrontview2");
                 camera.position.set(0, 0, -0);
                 controls.update();
-            }, 6497);
+            }, 40000);
 
             setTimeout(function() {
                 console.log("Bfrontview2");
                 camera.position.set(0.7, 240, 105);
                 controls.update();
-            }, 10000);
-
-            setTimeout(function() {
-                console.log("Bfrontview2");
-                camera.position.set(77.03, 281, 237);
-                controls.update();
-            }, 15205);
-
-            setTimeout(function() {
-                console.log("Bfrontview2");
-                camera.position.set(129, 180, 289);
-                controls.update();
-            }, 20700);
-
-            setTimeout(function() {
-                console.log("Bfrontview2");
-                camera.position.set(300, 300, 300);
-                controls.update();
-            }, 22330);
-
-            setTimeout(function() {
-                console.log("Bfrontview2");
-                camera.position.set(129, 180, 289);
-                controls.update();
-            }, 23900);
-
-            setTimeout(function() {
-                console.log("Bfrontview2");
-                camera.position.set(300, 300, 300);
-                controls.update();
-            }, 25380);
-
-            setTimeout(function() {
-                console.log("Bfrontview2");
-                camera.position.set(0.7, 240, 105);
-                controls.update();
-            }, 32100);
-
-            setTimeout(function() {
-                console.log("Bfrontview2");
-                camera.position.set(77.03, 281, 237);
-                controls.update();
-            }, 37440);
+            }, 43000);
 
             setTimeout(function() {
                 console.log("Bfrontview2");
                 camera.position.set(500, 500, 500);
                 controls.update();
-            }, 41610);
+            }, 46000);
 
             setTimeout(function() {
-                console.log("Afrontview1");
-                camera.position.set(30, 30, 10);
-                controls.update();
-            }, 47200);
-
-            setTimeout(function() {
-                console.log("Afrontview1");
+                console.log("Bfrontview2");
                 camera.position.set(30, 20, -10);
                 controls.update();
-            }, 488200);
-        
-        
-            setTimeout(function() {
-                console.log("Bfrontview2");
-                camera.position.set(0, 0, -0);
-                controls.update();
-            }, 50400);
-
-            setTimeout(function() {
-                console.log("Bfrontview2");
-                camera.position.set(0.7, 240, 105);
-                controls.update();
-            }, 51880);
-
-            setTimeout(function() {
-                console.log("Bfrontview2");
-                camera.position.set(500, 500, 500);
-                controls.update();
-            }, 54750);
+            }, 48000);
 
 
     }
@@ -574,26 +532,29 @@ function loadImgsAnimeTres() {
 
     function textLyrics() {
         setTimeout(function() {
-            document.getElementById("lyrics").innerHTML="Quiero verte otra vez" + '<br>' + "Desde mi cyberSpace";
-        }, 700);
+            document.getElementById("lyrics").innerHTML="Quiero verte otra vez dentro de mi cyberspace";
+        }, 5100);
     
     
         setTimeout(function() {
-            document.getElementById("lyrics").innerHTML="Desde que llegaste aquí" + '<br>' + "aprete el botón de reset.";
-        }, 10000);
+            document.getElementById("lyrics").innerHTML="Desde que llegaste aquí aprete el botón de reset.";
+        }, 10200);
 
         setTimeout(function() {
-            document.getElementById("lyrics").innerHTML="y en la terminal" + '<br>' + "yo tecle $cd y /";
-        }, 20700);
+            document.getElementById("lyrics").innerHTML="y en la terminal yo tecle $cd y /";
+        }, 16070);
 
         setTimeout(function() {
-            document.getElementById("lyrics").innerHTML="Al directorio de tu amorX2" ;
-        }, 32110);
+            document.getElementById("lyrics").innerHTML="Al directorio de tu amorX4" ;
+        }, 21200);
 
         setTimeout(function() {
-            document.getElementById("lyrics").innerHTML="SINTETIZADOR" + '<br>' + "FELIZ X4";
-        }, 47200);
+            document.getElementById("lyrics").innerHTML="y en la terminal yo tecle $cd y /";
+        }, 31975);
 
+        setTimeout(function() {
+            document.getElementById("lyrics").innerHTML="Al directorio de tu amorX4" ;
+        }, 37600);
     
 
     }

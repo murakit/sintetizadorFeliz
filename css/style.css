@@ -21,11 +21,13 @@ body {
 #loading-screen {
     position:fixed;
     font-family: cursive;
-    font-size: 30px;
+    font-size: 20px;
     z-index: 99999999;
-    color:white;
-    margin-top: 190px;
-    margin-left: 120px;
+    color:black;
+    margin-top: 170px;
+    margin-left: 110px;
+    text-shadow: 2px 2px 5px purple;
+
     
 }
 
@@ -83,7 +85,7 @@ body {
     position: fixed;
     z-index: 99;
     margin-top: 340px;
-    margin-left: 63px;
+    margin-left: 43px;
     color:black;
     font-size: 25px;
     font-family: 'Tangerine', cursive;
@@ -143,6 +145,7 @@ input[type="range"] {
     margin-left: 10px;
     position: absolute;
     font-family: 'Tangerine', cursive;
+    text-shadow: 4px 0 3px #e426bb, 0 0 5px white;
 
 
 }

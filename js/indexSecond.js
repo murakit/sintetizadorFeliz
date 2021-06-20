@@ -150,14 +150,14 @@ function setupWorld() {
     
 
     var murakit = new THREE.MTLLoader();
-    murakit.load("models/rockolas.mtl", function(materials) {
+    murakit.load("models/rockolasNEWBUENA.mtl", function(materials) {
       materials.preload();
       console.log(materials);
     
       var murakit = new THREE.OBJLoader();
       murakit.setMaterials(materials);
     
-      murakit.load("models/rockolas.obj", function(mesh) {
+      murakit.load("models/rockolasNEWBUENA.obj", function(mesh) {
       scene.add(mesh);
         
       });
@@ -179,7 +179,7 @@ function setupWorld() {
 
     const manager = new THREE.LoadingManager();
     manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
-        loadingScreen.innerHTML = ('Cargando:' + Math.floor(url) + '.\nLoaded ' + itemsLoaded  + itemsTotal );
+        loadingScreen.innerHTML = ('Cargando:'+ '<br>' +  url + '<br>' + 'Favor de esperar' );
         console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
        /* var mp3 = document.getElementById("myAudio");
         mp3.play();*/

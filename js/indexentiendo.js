@@ -163,10 +163,11 @@ function setupWorld() {
     
 
 
+
     const manager = new THREE.LoadingManager();
     manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
-        loadingScreen.innerHTML = ('Cargando:' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
-        loadingScreen.innerHTML = ('Cargando:' + Math.floor(url) + '.\nLoaded ' + itemsLoaded  + itemsTotal );
+        loadingScreen.innerHTML = ('Cargando:'+ '<br>' +  url + '<br>' + 'Favor de esperar' );
+        console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
        /* var mp3 = document.getElementById("myAudio");
         mp3.play();*/
     };
